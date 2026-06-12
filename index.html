@@ -1,157 +1,2498 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Nieruchomości</title>
-    <style>
-        /* Your original site styles remain completely untouched */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .portfolio-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .offer-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            background-color: #eee;
-        }
-        .main-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .thumbnails {
-            display: flex;
-            gap: 5px;
-            padding: 10px;
-            background: #fff;
-            overflow-x: auto;
-        }
-        .thumb-img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            cursor: pointer;
-            border-radius: 4px;
-            border: 2px solid transparent;
-            flex-shrink: 0;
-        }
-        .thumb-img:hover {
-            border-color: #333;
-        }
-        .offer-details {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        .offer-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .offer-specs {
-            margin: 0 0 15px 0;
-            padding: 0;
-            list-style: none;
-            color: #666;
-        }
-        .offer-specs li {
-            margin-bottom: 5px;
-        }
-        .price-info {
-            margin-top: auto;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
-        .price-line {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-        .price-line.total {
-            font-weight: bold;
-            color: #000;
-            margin-top: 10px;
-            font-size: 1.1rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IV Nieruchomości — Wrocław & Dolny Śląsk</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="https://i.ibb.co/XZmgrKfp/638304282-122094761517283478-7407989459376420636-n.jpg">
+  
+  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Outfit (Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Premium Color Palette Configuration */
+    :root {
+      --white: #ffffff;
+      --off-white: #f8f8f5;
+      --sage-light: #f0f7ee;
+      --sage: #a8c5a0;
+      --green: #4a8c5c;
+      --green-dark: #2d6b3e;
+      --charcoal: #1a1a1a;
+      --charcoal-mid: #2e2e2e;
+      --gray: #6b6b6b;
+      --gray-light: #e8e8e4;
+      --gold: #dfba73;
+      --gold-dark: #b59453;
+      --gold-light: #f7eed7;
+      
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      
+      --transition-smooth: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: var(--font-sans);
+      background-color: var(--white);
+      color: var(--charcoal);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--off-white);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--sage);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--green);
+    }
+
+    /* Typography & Display Headers */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--charcoal);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--gray);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-fast);
+    }
+
+    /* Custom Cursor FOLLOW-DOT */
+    #custom-cursor {
+      width: 8px;
+      height: 8px;
+      background-color: var(--gold-dark);
+      border-radius: 50%;
+      position: fixed;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    #custom-cursor-follower {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease-out, border-color 0.2s;
+    }
+
+    /* Adjust custom cursor on mobile */
+    @media (max-width: 1024px) {
+      #custom-cursor, #custom-cursor-follower {
+        display: none !important;
+      }
+    }
+
+    /* Outer layout utility */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Universal Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2.22rem;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      font-family: var(--font-sans);
+    }
+
+    .btn-primary {
+      background-color: var(--green);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--green-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(74, 140, 92, 0.15);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border-color: var(--white);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--white);
+      color: var(--charcoal);
+      transform: translateY(-3px);
+    }
+
+    .btn-charcoal {
+      background-color: var(--charcoal);
+      color: var(--white);
+    }
+
+    .btn-charcoal:hover {
+      background-color: var(--charcoal-mid);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-facebook {
+      background-color: #1877f2;
+      color: var(--white);
+      border: none;
+    }
+
+    .btn-facebook:hover {
+      background-color: #166fe5;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(24, 119, 242, 0.25);
+    }
+
+    .btn svg {
+      margin-right: 0.5rem;
+    }
+
+    /* Scroll animations style (IntersectionObserver) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Header & Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 990;
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition-smooth);
+      background-color: transparent;
+    }
+
+    .navbar.scrolled {
+      padding: 1rem 4rem;
+      background-color: var(--white);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      color: var(--gold);
+      margin-right: 0.2rem;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(223, 186, 115, 0.35);
+    }
+
+    .navbar.scrolled .logo {
+      color: var(--charcoal);
+    }
+
+    .navbar.scrolled .logo span {
+      color: var(--gold-dark);
+      text-shadow: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--sage);
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .navbar.scrolled .nav-link {
+      color: var(--charcoal-mid);
+    }
+
+    .navbar.scrolled .nav-link:hover {
+      color: var(--green);
+    }
+
+    .navbar.scrolled .nav-link::after {
+      background-color: var(--green);
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 18px;
+      cursor: pointer;
+      z-index: 1010;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: var(--white);
+      transition: var(--transition-fast);
+    }
+
+    .navbar.scrolled .menu-toggle span {
+      background-color: var(--charcoal);
+    }
+
+    /* Mobile navbar overlay container */
+    @media (max-width: 1024px) {
+      .navbar {
+        padding: 1.2rem 2rem;
+      }
+      .navbar.scrolled {
+        padding: 1rem 2rem;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 400px;
+        height: 100vh;
+        background-color: var(--charcoal);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        padding: 2rem;
+        transition: var(--transition-smooth);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+      }
+      .nav-links.active {
+        right: 0;
+      }
+      .nav-link {
+        color: var(--white) !important;
+        font-size: 1rem;
+      }
+      .nav-link::after {
+        background-color: var(--sage) !important;
+      }
+      .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: var(--white) !important;
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--white) !important;
+      }
+    }
+
+    /* Hero Section Redesign: Immersive Typographic & Architectural Masterpiece */
+    .hero-section {
+      width: 100%;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 280px 1.4fr 1.1fr;
+      position: relative;
+      overflow: hidden;
+      background-color: #121210; /* Soft warm luxury charcoal black */
+      background-image: 
+        linear-gradient(to right, rgba(18, 18, 16, 0.94) 0%, rgba(18, 18, 16, 0.88) 50%, rgba(13, 13, 12, 0.92) 100%),
+        url('https://i.ibb.co/R4PRLsKz/photograph-of-modern-house-professional-202606120815.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* Parallax effect where supported */
+      color: var(--white);
+    }
+
+    /* Immersive Floating Gradient Blobs */
+    .hero-glow-blob-1 {
+      position: absolute;
+      top: -10%;
+      right: 15%;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(223, 186, 115, 0.16) 0%, rgba(181, 148, 83, 0.04) 50%, rgba(0,0,0,0) 100%);
+      filter: blur(80px);
+      z-index: 1;
+      pointer-events: none;
+      animation: floatGlow 15s infinite ease-in-out alternate;
+    }
+    .hero-glow-blob-2 {
+      position: absolute;
+      bottom: 10%;
+      left: 20%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168, 197, 160, 0.12) 0%, rgba(74, 140, 92, 0.02) 60%, rgba(0,0,0,0) 100%);
+      filter: blur(100px);
+      z-index: 1;
+      pointer-events: none;
+      animation: floatGlow 20s infinite ease-in-out alternate-reverse;
+    }
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(30px, -50px) scale(1.1); }
+      100% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+
+    /* Column 1: Editorial Context / Coordinates & Info */
+    .hero-context-col {
+      border-right: 1px solid rgba(168, 197, 160, 0.15);
+      padding: 5.5rem 2.5rem 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-context-top {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-context-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      align-self: flex-start;
+      margin-top: 2rem;
+    }
+
+    .hero-location-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border-top: 1px solid rgba(223, 186, 115, 0.15);
+      padding-top: 1.5rem;
+    }
+
+    .hero-coords {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      letter-spacing: 0.12em;
+    }
+
+    .hero-local-time {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.45);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .time-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--gold);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulseAlert 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* Column 2: Typographic Masterpiece */
+    .hero-main-col {
+      padding: 5.5rem 4rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+      border-right: 1px solid rgba(168, 197, 160, 0.15);
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    }
+
+    .hero-premium-pill {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background-color: rgba(223, 186, 115, 0.12);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(223, 186, 115, 0.25);
+    }
+
+    .hero-main-col h1 {
+      font-family: var(--font-serif);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(25px);
+      animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+      line-height: 1.05;
+    }
+
+    .hero-vintage-brand {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      color: var(--white);
+      display: block;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-vintage-italic {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 400;
+      display: block;
+      margin-top: -0.3rem;
+      position: relative;
+    }
+
+    .hero-vintage-sub {
+      font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 300;
+      display: block;
+      margin-top: 0.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-divider-fine {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, rgba(223, 186, 115, 0.35), transparent);
+      margin: 2.5rem 0;
+      opacity: 0;
+      animation: lineGrowFull 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    }
+
+    @keyframes lineGrowFull {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+
+    .hero-editorial-desc {
+      max-width: 520px;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+    }
+
+    .hero-editorial-desc strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .hero-editorial-actions {
+      display: flex;
+      gap: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+    }
+
+    /* Column 3: Kinetic/Architectural Art */
+    .hero-art-col {
+      padding: 5.5rem 4rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+      background-color: #0d0d0c; /* Marginally darker shade for layered contrast */
+    }
+
+    .hero-art-container {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 800px;
+      cursor: crosshair;
+    }
+
+    /* Concentric Floating Arches */
+    .kinetic-arch-wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+      transition: transform 0.1s ease-out;
+      pointer-events: none;
+    }
+
+    .kinetic-arch-item {
+      position: absolute;
+      border: 1px solid rgba(168, 197, 160, 0.22);
+      border-bottom: none;
+      border-radius: 1000px 1000px 0 0;
+      background: linear-gradient(180deg, rgba(74, 140, 92, 0.06) 0%, rgba(168, 197, 160, 0.01) 85%, transparent 100%);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      transition: border-color 0.5s var(--transition-smooth), transform 0.1s ease-out, background-color 0.5s var(--transition-smooth), box-shadow 0.5s var(--transition-smooth);
+      box-shadow: inset 0 20px 40px rgba(74, 140, 92, 0.03), 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .kinetic-arch-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(168, 197, 160, 0.1), transparent);
+    }
+
+    .arch-lg {
+      width: 320px;
+      height: 480px; /* high arch template */
+      transform: translateZ(-60px);
+      border-color: rgba(168, 197, 160, 0.18);
+    }
+
+    .arch-md {
+      width: 240px;
+      height: 360px;
+      transform: translateZ(0);
+      border-color: rgba(74, 140, 92, 0.25);
+    }
+
+    .arch-sm {
+      width: 160px;
+      height: 240px;
+      transform: translateZ(60px);
+      border-color: var(--green);
+    }
+
+    .arch-xs {
+      width: 80px;
+      height: 120px;
+      transform: translateZ(120px);
+      border-color: var(--white);
+      opacity: 0.7;
+    }
+
+    .arch-goldbar {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, rgba(223, 186, 115, 0), rgba(223, 186, 115, 0.75) 50%, rgba(223, 186, 115, 0));
+      box-shadow: 0 0 12px rgba(223, 186, 115, 0.4);
+    }
+
+    .hero-art-caption {
+      margin-top: 3rem;
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      font-style: italic;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.4);
+      text-align: center;
+      transition: var(--transition-fast);
+      pointer-events: none;
+    }
+
+    @keyframes heroFadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .scroll-indicator svg {
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-8px);
+      }
+      60% {
+        transform: translateY(-4px);
+      }
+    }
+
+    /* Responsive scaling for structural redesign */
+    @media (max-width: 1200px) {
+      .hero-section {
+        grid-template-columns: 240px 1.2fr 1fr;
+      }
+      .hero-context-col {
+        padding: 5rem 2rem 3rem 2.5rem;
+      }
+      .hero-main-col {
+        padding: 5rem 2.5rem 3rem 2.5rem;
+      }
+      .hero-art-col {
+        padding: 5rem 2rem 3rem 2rem;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        min-height: auto;
+        background-attachment: scroll;
+      }
+      .hero-context-col {
+        border-right: none;
+        border-bottom: 1px solid rgba(168, 197, 160, 0.15);
+        padding: 5rem 2rem 2rem 2rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .hero-context-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+        margin-top: 0;
+      }
+      .hero-location-card {
+        border-top: none;
+        padding-top: 0;
+        align-items: flex-end;
+      }
+      .hero-main-col {
+        border-right: none;
+        padding: 4rem 2rem;
+      }
+      .hero-art-col {
+        padding: 4rem 2rem 6rem 2rem;
+        border-top: 1px solid rgba(168, 197, 160, 0.15);
+      }
+      .hero-editorial-actions {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .hero-editorial-actions .btn {
+        width: 100%;
+      }
+    }
+
+    /* Section Styling */
+    section {
+      padding: 10rem 0;
+      position: relative;
+    }
+
+    .section-header-centered {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 5rem auto;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-sub {
+      font-size: 1.15rem;
+      color: var(--gray);
+    }
+
+    /* O NAS (About) Section */
+    .about-section {
+      background-color: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 6rem;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .about-left {
+      position: relative;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .watermark-iv {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: var(--font-serif);
+      font-size: clamp(12rem, 24vw, 24rem);
+      font-style: italic;
+      color: rgba(168, 197, 160, 0.13);
+      line-height: 0.8;
+      pointer-events: none;
+      user-select: none;
+      transform: translate(-20px, -40px);
+    }
+
+    .about-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-right {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .about-text {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--charcoal-mid);
+    }
+
+    /* Aesthetic List - No Box Card Design */
+    .aesthetic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      border-top: 1px solid var(--gray-light);
+      margin-top: 2rem;
+    }
+
+    .aesthetic-list-item {
+      display: grid;
+      grid-template-columns: 80px 1.5fr 3fr;
+      align-items: center;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--gray-light);
+      transition: var(--transition-fast);
+    }
+
+    .aesthetic-list-item:hover {
+      padding-left: 1rem;
+      border-bottom-color: var(--green);
+    }
+
+    .aesthetic-list-num {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--sage);
+      letter-spacing: 0.1em;
+    }
+
+    .aesthetic-list-item:hover .aesthetic-list-num {
+      color: var(--green);
+    }
+
+    .aesthetic-list-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .aesthetic-list-title svg {
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .aesthetic-list-desc {
+      font-size: 1rem;
+      color: var(--gray);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+      section {
+        padding: 6rem 0;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .about-left {
+        min-height: auto;
+      }
+      .watermark-iv {
+        font-size: 15rem;
+        transform: translate(-10px, -30px);
+      }
+
+    }
+
+    /* OFERTY (Listings) Section */
+    .offers-section {
+      background-color: var(--off-white);
+    }
+
+    /* Split Listing Design (Borderless Aesthetic List) */
+    .listing-split-list {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .listing-carousel-wrapper {
+      position: relative;
+      border: 1px solid var(--gray-light);
+      padding: 0.5rem;
+      background-color: var(--white);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+    }
+
+    .listing-details-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Catalog list (aesthetic vertical specification table list) */
+    .catalog-list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border-top: 1.5px solid var(--charcoal);
+      margin: 1.5rem 0 2.5rem 0;
+    }
+
+    .catalog-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--gray-light);
+      font-size: 1rem;
+    }
+
+    .catalog-label {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .catalog-label svg {
+      color: var(--green);
+    }
+
+    .catalog-value {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .catalog-value.highlight {
+      color: var(--gold-dark);
+      font-weight: 600;
+    }
+
+    .catalog-row.price-total {
+      background-color: rgba(74, 140, 92, 0.06);
+      margin: 1rem 0 0 0;
+      padding: 1.25rem 1rem;
+      border: 1px solid rgba(74, 140, 92, 0.15);
+      border-radius: 4px;
+    }
+
+    .catalog-row.price-total .catalog-label {
+      color: var(--green-dark);
+      font-weight: 500;
+    }
+
+    .catalog-row.price-total .catalog-value {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+
+    /* Responsive Image Carousel */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background-color: var(--charcoal);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: var(--transition-fast);
+    }
+
+    .carousel-btn:hover {
+      background-color: var(--white);
+      color: var(--green);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .carousel-btn.prev {
+      left: 1.5rem;
+    }
+
+    .carousel-btn.next {
+      right: 1.5rem;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.6rem;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .carousel-dot.active {
+      background-color: var(--white);
+      transform: scale(1.3);
+    }
+
+    /* Property details */
+    .listing-details {
+      padding: 3.5rem;
+    }
+
+    .listing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      gap: 1.5rem;
+    }
+
+    .listing-info {
+      flex-grow: 1;
+    }
+
+    .pill-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      background-color: var(--gold-light);
+      color: var(--gold-dark);
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .listing-title {
+      font-size: 2.22rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .listing-subtitle {
+      font-size: 1rem;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .listing-subtitle svg {
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* Highlights Row */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 1.8rem 0;
+      border-top: 1px solid var(--gray-light);
+      border-bottom: 1px solid var(--gray-light);
+      margin-bottom: 2.5rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .highlight-item svg {
+      color: var(--green);
+      opacity: 0.9;
+    }
+
+    .highlight-item span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--charcoal-mid);
+    }
+
+    /* Price Section styling */
+    .price-block {
+      background-color: var(--off-white);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+      color: var(--gray);
+    }
+
+    .price-row.total {
+      margin-bottom: 0;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--gray-light);
+      color: var(--charcoal);
+    }
+
+    .price-row strong {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .price-row.total strong {
+      font-size: 1.8rem;
+      color: var(--green-dark);
+    }
+
+    /* FB Link Block below */
+    .more-offers-block {
+      text-align: center;
+      margin-top: 4.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .more-offers-text {
+      font-size: 1.15rem;
+      color: var(--charcoal-mid);
+    }
+
+    @media (max-width: 768px) {
+      .listing-details {
+        padding: 2rem;
+      }
+      .listing-header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .listing-title {
+        font-size: 1.8rem;
+      }
+      .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.2rem 0;
+      }
+      .price-block {
+        padding: 1.5rem;
+      }
+      .price-row {
+        font-size: 0.95rem;
+      }
+      .price-row.total strong {
+        font-size: 1.45rem;
+      }
+    }
+
+    /* DLACZEGO MY (Why Us) Section */
+    .why-us-section {
+      background-color: var(--sage-light);
+    }
+
+    /* Why Us List - Aesthetic dividers representing list format */
+    .why-us-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 900px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(74, 140, 92, 0.25);
+    }
+
+    .why-us-item {
+      display: grid;
+      grid-template-columns: 80px 1.5fr 3.5fr;
+      align-items: start;
+      padding: 2.22rem 0;
+      border-bottom: 1px solid rgba(74, 140, 92, 0.25);
+      transition: var(--transition-smooth);
+    }
+
+    .why-us-item:hover {
+      padding-left: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .why-us-num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-style: italic;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .why-us-title-block {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .why-us-icon {
+      width: 42px;
+      height: 42px;
+      background-color: var(--white);
+      color: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(74, 140, 92, 0.15);
+      flex-shrink: 0;
+    }
+
+    .why-us-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .why-us-desc {
+      color: var(--gray);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .why-us-item {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 1.8rem 0;
+      }
+      .why-us-item:hover {
+        padding-left: 0.8rem;
+      }
+    }
+
+    /* KONTAKT (Contact) Section */
+    .contact-section {
+      background-color: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .contact-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .contact-headline {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+    }
+
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--gray-light);
+      border-radius: 50%;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gray);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-value {
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      font-weight: 400;
+    }
+
+    .contact-value.phone-prio {
+      font-size: 1.6rem;
+      font-family: var(--font-serif);
+      color: var(--green-dark);
+      font-weight: 500;
+    }
+
+    .contact-item a:hover .contact-value {
+      color: var(--green);
+    }
+
+    .facebook-prompt {
+      margin-top: 1rem;
+    }
+
+    .fb-action-btn {
+      margin-bottom: 1rem;
+    }
+
+    .contact-note {
+      font-size: 0.9rem;
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    /* Right column: luxury architectural monogram container */
+    .contact-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .architectural-frame {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 1;
+      border: 1px solid var(--sage);
+      padding: 2.5rem;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--off-white);
+    }
+
+    .architectural-frame::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 1px solid rgba(168, 197, 160, 0.3);
+      pointer-events: none;
+    }
+
+    .architectural-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .monogram-text {
+      font-family: var(--font-serif);
+      font-size: 12rem;
+      font-style: italic;
+      color: rgba(74, 140, 92, 0.18);
+      line-height: 1;
+      position: relative;
+    }
+
+    .monogram-lines {
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      pointer-events: none;
+    }
+
+    @media (max-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .contact-right {
+        order: -1;
+      }
+      .contact-value.phone-prio {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: var(--charcoal);
+      color: var(--white);
+      padding: 6rem 0 3rem 0;
+      border-top: 1.5px solid var(--green);
+      position: relative;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .logo-footer {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--white);
+    }
+
+    .logo-footer span {
+      color: var(--green);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .footer-desc {
+      color: rgba(255, 255, 255, 0.55);
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.8rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      list-style: none;
+    }
+
+    .footer-link {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-link:hover {
+      color: var(--white);
+      transform: translateX(5px);
+    }
+
+    .footer-contact-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-contact-summary a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      padding-top: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* Accessibility Reduced Motion support */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-delay: 0s !important;
+        animation-duration: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+      }
+      #custom-cursor, #custom-cursor-follower {
+        display: none !important;
+      }
+      .hero-image {
+        transform: scale(1) !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="portfolio-container">
+  <!-- Custom Cursor Followers (Subtle, elegant) -->
+  <div id="custom-cursor"></div>
+  <div id="custom-cursor-follower"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar" id="navbar">
+    <a href="#" class="logo"><span>IV</span> NIERUCHOMOŚCI</a>
+    
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#o-nas" class="nav-link">O nas</a></li>
+      <li><a href="#oferty" class="nav-link">Oferty</a></li>
+      <li><a href="#dlaczego-my" class="nav-link">Dlaczego my</a></li>
+      <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <!-- REDESIGNED HERO: IMMERSIVE TYPOGRAPHIC & ARCHITECTURAL GRID -->
+    <section class="hero-section" id="home">
+      
+      <!-- Immersive Floating Gradient Blobs -->
+      <div class="hero-glow-blob-1"></div>
+      <div class="hero-glow-blob-2"></div>
+      
+      <!-- Column 1: Context Metas -->
+      <div class="hero-context-col" style="justify-content: flex-end;">
         
-        <!-- THE UPDATED KLECINA OFFER CARD -->
-        <div class="offer-card">
-            <div class="image-container">
-                <!-- Using the first image as the default active preview -->
-                <img id="klecina-main" class="main-img" src="https://i.ibb.co/d0CF1zDD/638307959-122094941847283478-6191178085188639055-n.jpg" alt="Mieszkanie na Klecinie">
-            </div>
+        <div class="hero-location-card">
+          <span class="hero-coords">51.1079° N, 17.0385° E</span>
+          <div class="hero-local-time">
+            <span class="time-dot"></span>
+            <span id="live-time">12:00:00 CET</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2: Large Typographic Text -->
+      <div class="hero-main-col">
+        <div class="hero-badge-row">
+          <span class="hero-premium-pill">Nieruchomości Premium</span>
+          <span style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4);">Licencja nr 24810</span>
+        </div>
+        
+        <h1>
+          <span class="hero-vintage-brand">IV NIERUCHOMOŚCI</span>
+          <span class="hero-vintage-italic">Sztuka Wyboru</span>
+          <span class="hero-vintage-sub">wybitnych przestrzeni</span>
+        </h1>
+        
+        <div class="hero-divider-fine"></div>
+        
+        <p class="hero-editorial-desc">
+          Wrocław i Dolny Śląsk. Twoja bezpieczna przystań na rynku premium. Wspieramy procesy <strong>sprzedaży, zakupu oraz stabilnego najmu</strong> z dbałością o każdy detal formalny i prawny.
+        </p>
+        
+        <div class="hero-editorial-actions">
+          <a href="#oferty" class="btn btn-primary" style="background-color: var(--green); color: var(--white); border: none;">Zobacz oferty</a>
+          <a href="#kontakt" class="btn btn-secondary" style="border-color: rgba(255,255,255,0.3); color: var(--white);">Konsultacja</a>
+        </div>
+      </div>
+
+      <!-- Column 3: Kinetic Architectural Arch Sculpture -->
+      <div class="hero-art-col">
+        <div class="hero-art-container">
+          <div class="kinetic-arch-wrapper">
+            <!-- Arch layers from largest to smallest (Z-depth parallax) -->
+            <div class="kinetic-arch-item arch-lg"></div>
+            <div class="kinetic-arch-item arch-md"></div>
+            <div class="kinetic-arch-item arch-sm"></div>
+            <div class="kinetic-arch-item arch-xs"></div>
+          </div>
+          <div class="arch-goldbar"></div>
+        </div>
+      </div>
+
+      <!-- Scroll Action Button -->
+      <div class="scroll-indicator" style="color: var(--gold); text-shadow: 0 0 10px rgba(223, 186, 115, 0.25); opacity: 0.85;">
+        <span>Eksploruj</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </div>
+    </section>
+
+    <!-- O NAS (About) SECTION -->
+    <section class="about-section id-anchor" id="o-nas">
+      <div class="container">
+        <div class="about-grid reveal">
+          <div class="about-left">
+            <span class="watermark-iv">IV</span>
+            <h2 class="about-title">Kim jesteśmy?</h2>
+          </div>
+          <div class="about-right">
+            <p class="about-text">
+              <strong>IV Nieruchomości</strong> to agencja działająca na rynku nieruchomości we Wrocławiu i na Dolnym Śląsku. Pomagamy klientom w sprzedaży, zakupie oraz wynajmie nieruchomości — zarówno w samym Wrocławiu, jak i w bliższych i dalszych okolicach. Stawiamy na indywidualne podejście, transparentność i skuteczność. Skontaktuj się z nami — pierwszy krok to tylko jedna wiadomość.
+            </p>
             
-            <!-- Dynamic Thumbnail Gallery within the card -->
-            <div class="thumbnails">
-                <img class="thumb-img" src="https://i.ibb.co/d0CF1zDD/638307959-122094941847283478-6191178085188639055-n.jpg" onclick="updatePreview('klecina-main', this.src)" alt="Miniaturka 1">
-                <img class="thumb-img" src="https://i.ibb.co/k2ptQWgL/637292963-122094942177283478-3126443323052143984-n.jpg" onclick="updatePreview('klecina-main', this.src)" alt="Miniaturka 2">
-                <img class="thumb-img" src="https://i.ibb.co/rfkZWhh2/638430448-122094941829283478-2801516253964915285-n.jpg" onclick="updatePreview('klecina-main', this.src)" alt="Miniaturka 3">
-                <img class="thumb-img" src="https://i.ibb.co/mV0BBgr7/639566336-122094942117283478-8457010170034581875-n.jpg" onclick="updatePreview('klecina-main', this.src)" alt="Miniaturka 4">
-                <img class="thumb-img" src="https://i.ibb.co/XxCRswhV/639060337-122094941931283478-8245118694726965152-n.jpg" onclick="updatePreview('klecina-main', this.src)" alt="Miniaturka 5">
-                <img class="thumb-img" src="https://i.ibb.co/N6NkYhJc/639661991-122094941205283478-7206057152949917555-n.jpg" onclick="updatePreview('klecina-main', this.src)" alt="Miniaturka 6">
-            </div>
-
-            <div class="offer-details">
-                <div class="offer-title">Do wynajęcia mieszkanie na Klecinie</div>
-                
-                <ul class="offer-specs">
-                    <li>• 2 pokoje</li>
-                    <li>• Taras</li>
-                    <li>• Garderoba</li>
-                </ul>
-
-                <div class="price-info">
-                    <div class="price-line">
-                        <span>Czynsz najmu:</span>
-                        <span>2500 zł</span>
-                    </div>
-                    <div class="price-line">
-                        <span>Opłaty administracyjne:</span>
-                        <span>ok. 1000 zł</span>
-                    </div>
-                    <div class="price-line total">
-                        <span>Razem:</span>
-                        <span>ok. 3500 zł</span>
-                    </div>
+            <div class="aesthetic-list">
+              <div class="aesthetic-list-item">
+                <span class="aesthetic-list-num">01 /</span>
+                <div class="aesthetic-list-title">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Sprzedaż</span>
                 </div>
+                <p class="aesthetic-list-desc">Kompleksowa i bezpieczna sprzedaż Twojej nieruchomości z pełnym wsparciem marketingowym i prawnym.</p>
+              </div>
+
+              <div class="aesthetic-list-item">
+                <span class="aesthetic-list-num">02 /</span>
+                <div class="aesthetic-list-title">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0110 0v4"></path>
+                  </svg>
+                  <span>Wynajem</span>
+                </div>
+                <p class="aesthetic-list-desc">Profesjonalny dobór najemców oraz bezpieczna weryfikacja i przygotowanie stabilnej umowy najmu.</p>
+              </div>
+
+              <div class="aesthetic-list-item">
+                <span class="aesthetic-list-num">03 /</span>
+                <div class="aesthetic-list-title">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <span>Zakup</span>
+                </div>
+                <p class="aesthetic-list-desc">Wyszukiwanie i pozyskiwanie nieruchomości idealnie dopasowanych do Twoich kryteriów i budżetu.</p>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTY (Listings) SECTION -->
+    <section class="offers-section id-anchor" id="oferty">
+      <div class="container">
+        <div class="section-header-centered reveal">
+          <span class="section-label">Aktualne Oferty</span>
+          <h2 class="section-title">Sprawdź dostępne nieruchomości</h2>
         </div>
 
-        <!-- Remaining original portfolio cards can continue here unchanged -->
+        <!-- Split Layout - Borderless Aesthetic List instead of Card designs -->
+        <div class="listing-split-list reveal">
+          <!-- Slide Show Column (Left) -->
+          <div class="listing-carousel-wrapper">
+            <div class="carousel-container" id="property-carousel">
+              <div class="carousel-track" id="carousel-track">
+                <div class="carousel-slide">
+                  <img src="https://i.ibb.co/d0CF1zDD/638307959-122094941847283478-6191178085188639055-n.jpg" alt="Mieszkanie na Klecinie - Salon" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                  <img src="https://i.ibb.co/k2ptQWgL/637292963-122094942177283478-3126443323052143984-n.jpg" alt="Mieszkanie na Klecinie - Kuchnia i jadalnia" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                  <img src="https://i.ibb.co/rfkZWhh2/638430448-122094941829283478-2801516253964915285-n.jpg" alt="Mieszkanie na Klecinie - Sypialnia" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                  <img src="https://i.ibb.co/mV0BBgr7/639566336-122094942117283478-8457010170034581875-n.jpg" alt="Mieszkanie na Klecinie - Taras wypoczynkowy" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                  <img src="https://i.ibb.co/XxCRswhV/639060337-122094941931283478-8245118694726965152-n.jpg" alt="Mieszkanie na Klecinie - Praktyczna garderoba" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                  <img src="https://i.ibb.co/N6NkYhJc/639661991-122094941205283478-7206057152949917555-n.jpg" alt="Mieszkanie na Klecinie - Łazienka" loading="lazy">
+                </div>
+              </div>
+              
+              <button class="carousel-btn prev" id="carousel-prev" aria-label="Poprzednie zdjęcie">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="carousel-btn next" id="carousel-next" aria-label="Następne zdjęcie">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+              
+              <div class="carousel-dots" id="carousel-dots">
+                <!-- Dynamically rendered -->
+              </div>
+            </div>
+          </div>
 
+          <!-- Description Column (Right) - Restructured as an Academic Specification List -->
+          <div class="listing-details-container">
+            <div class="listing-header" style="margin-bottom: 0.5rem;">
+              <div class="listing-info">
+                <span class="pill-badge" style="margin-bottom: 0.6rem;">DO WYNAJĘCIA</span>
+                <h3 class="listing-title" style="font-size: 2rem;">Mieszkanie na Klecinie</h3>
+                <div class="listing-subtitle">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Wrocław, Klecina</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Specification Catalog (Aesthetic list format) -->
+            <div class="catalog-list">
+              <div class="catalog-row">
+                <span class="catalog-label">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  Status oferty
+                </span>
+                <span class="catalog-value highlight">Aktualne</span>
+              </div>
+              <div class="catalog-row">
+                <span class="catalog-label">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                  </svg>
+                  Liczba pokoi
+                </span>
+                <span class="catalog-value">2 pokoje</span>
+              </div>
+              <div class="catalog-row">
+                <span class="catalog-label">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 12h20M2 12a10 10 0 0110-10v20A10 10 0 012 12z"></path>
+                  </svg>
+                  Przestrzeń zewnętrzna
+                </span>
+                <span class="catalog-value">Taras wypoczynkowy</span>
+              </div>
+              <div class="catalog-row">
+                <span class="catalog-label">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="3" x2="9" y2="21"></line>
+                  </svg>
+                  Główne atuty
+                </span>
+                <span class="catalog-value">Garderoba</span>
+              </div>
+              <div class="catalog-row">
+                <span class="catalog-label">
+                  Czynsz najmu
+                </span>
+                <span class="catalog-value">2 500 zł / miesiąc</span>
+              </div>
+              <div class="catalog-row">
+                <span class="catalog-label">
+                  Opłaty administracyjne
+                </span>
+                <span class="catalog-value">~1 000 zł / miesiąc</span>
+              </div>
+              <div class="catalog-row price-total">
+                <span class="catalog-label">
+                  Łączny koszt
+                </span>
+                <span class="catalog-value">~3 500 zł / miesiąc</span>
+              </div>
+            </div>
+
+            <!-- CTA Primary -->
+            <a href="mailto:biuro.ivnieruchomosci@gmail.com?subject=Zapytanie:%20Mieszkanie%20Klecina" class="btn btn-charcoal" style="width: 100%;">
+              Zapytaj o tę ofertę
+            </a>
+          </div>
+        </div>
+
+        <!-- Social Facebook Links -->
+        <div class="more-offers-block reveal">
+          <p class="more-offers-text">Więcej ofert dostępnych na naszym profilu Facebook</p>
+          <a href="https://www.facebook.com/profile.php?id=61588504347407" target="_blank" rel="noopener noreferrer" class="btn btn-facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"></path>
+            </svg>
+            Nasz fanpage Facebook
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DLACZEGO MY SECTION -->
+    <section class="why-us-section id-anchor" id="dlaczego-my">
+      <div class="container">
+        <div class="section-header-centered reveal">
+          <span class="section-label">Dlaczego My</span>
+          <h2 class="section-title">Dlaczego warto nas wybrać?</h2>
+        </div>
+
+        <div class="why-us-list reveal">
+          <!-- Item 01 -->
+          <div class="why-us-item">
+            <span class="why-us-num">01 /</span>
+            <div class="why-us-title-block">
+              <div class="why-us-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <h3 class="why-us-title">Lokalna wiedza</h3>
+            </div>
+            <p class="why-us-desc">
+              Doskonale znamy Wrocław i Dolny Śląsk — każdą dzielnicę, rynek lokalny oraz trendy mieszkaniowe. Pomogliśmy już setkom rodzin osiedlić się we właściwym miejscu.
+            </p>
+          </div>
+
+          <!-- Item 02 -->
+          <div class="why-us-item">
+            <span class="why-us-num">02 /</span>
+            <div class="why-us-title-block">
+              <div class="why-us-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 010 7.75"></path>
+                </svg>
+              </div>
+              <h3 class="why-us-title">Indywidualne podejście</h3>
+            </div>
+            <p class="why-us-desc">
+              Każdy klient, rodzina oraz każda nieruchomość ma swoją unikalną historię. Słuchamy z uwagą i kierujemy nasze działania dokładnie tam, gdzie są Twoje marzenia.
+            </p>
+          </div>
+
+          <!-- Item 03 -->
+          <div class="why-us-item">
+            <span class="why-us-num">03 /</span>
+            <div class="why-us-title-block">
+              <div class="why-us-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </div>
+              <h3 class="why-us-title">Transparentność</h3>
+            </div>
+            <p class="why-us-desc">
+              Zapewniamy czytelne warunki współpracy od pierwszego spotkania. Cenimy absolutną uczciwość prawną i brak ukrytych zapisów na każdym poziomie obsługi.
+            </p>
+          </div>
+
+          <!-- Item 04 -->
+          <div class="why-us-item">
+            <span class="why-us-num">04 /</span>
+            <div class="why-us-title-block">
+              <div class="why-us-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <h3 class="why-us-title">Pełna skuteczność</h3>
+            </div>
+            <p class="why-us-desc">
+              Działamy dynamicznie i z pełnym zaangażowaniem, oszczędzając Twój cenny czas. Dbamy o to, aby transakcje przebiegały sprawnie, pewnie i terminowo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT (Contact) SECTION -->
+    <section class="contact-section id-anchor" id="kontakt">
+      <div class="container">
+        <div class="contact-grid reveal">
+          <div class="contact-left">
+            <h2 class="contact-headline">Porozmawiajmy</h2>
+            <p class="about-text" style="margin-top: -1.5rem;">
+              Skontaktuj się z nami — odpowiemy najszybciej jak to możliwe. Zapraszamy do rozmowy o Twoich pomysłach i potrzebach.
+            </p>
+            
+            <div class="contact-channels">
+              <!-- Tel -->
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                  </svg>
+                </div>
+                <a href="tel:884454894">
+                  <span class="contact-label">Zadzwoń do nas</span>
+                  <span class="contact-value phone-prio">884 454 894</span>
+                </a>
+              </div>
+
+              <!-- Email -->
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <a href="mailto:biuro.ivnieruchomosci@gmail.com">
+                  <span class="contact-label">Napisz do nas maila</span>
+                  <span class="contact-value">biuro.ivnieruchomosci@gmail.com</span>
+                </a>
+              </div>
+
+              <!-- Obszar -->
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                    <line x1="9" y1="3" x2="9" y2="18"></line>
+                    <line x1="15" y1="6" x2="15" y2="21"></line>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-label">Obszar działania</span>
+                  <span class="contact-value">Wrocław & Dolny Śląsk</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Facebook CTA -->
+            <div class="facebook-prompt">
+              <a href="https://www.facebook.com/profile.php?id=61588504347407" target="_blank" rel="noopener noreferrer" class="btn btn-primary fb-action-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-right: 0.6rem;">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"></path>
+                </svg>
+                Napisz do nas na Facebooku
+              </a>
+              <p class="contact-note">Możesz też skontaktować się z nami w wiadomości prywatnej na Facebooku.</p>
+            </div>
+          </div>
+          
+          <div class="contact-right">
+            <div class="architectural-frame">
+              <div class="architectural-center">
+                <div class="monogram-text">IV</div>
+                <!-- Premium Minimalist Blueprint Design lines -->
+                <svg class="monogram-lines" viewBox="0 0 200 200" fill="none" stroke="rgba(74, 140, 92, 0.15)" stroke-width="1">
+                  <!-- Structural overlay curves & guidelines matching real estate architects style -->
+                  <line x1="10" y1="10" x2="190" y2="10"></line>
+                  <line x1="10" y1="190" x2="190" y2="190"></line>
+                  <line x1="10" y1="10" x2="10" y2="190"></line>
+                  <line x1="190" y1="10" x2="190" y2="190"></line>
+                  <line x1="0" y1="100" x2="200" y2="100"></line>
+                  <line x1="100" y1="0" x2="100" y2="200"></line>
+                  <path d="M100 10 L190 70 L190 190 L10 190 L10 70 Z" stroke="rgba(74, 140, 92, 0.2)" stroke-width="1.5"></path>
+                  <polyline points="10 70 100 10 190 70" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="4,4"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-info">
+          <a href="#" class="logo-footer"><span>IV</span> NIERUCHOMOŚCI</a>
+          <p class="footer-desc">
+            Twoje profesjonalne biuro nieruchomości we Wrocławiu i na obszarze całego Dolnego Śląska. Zapewniamy bezpieczeństwo, partnerstwo i najwyższy poziom usług.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="footer-col-title">Skrócone Menu</h4>
+          <ul class="footer-links">
+            <li><a href="#o-nas" class="footer-link">O nas</a></li>
+            <li><a href="#oferty" class="footer-link">Oferty</a></li>
+            <li><a href="#dlaczego-my" class="footer-link">Dlaczego my</a></li>
+            <li><a href="#kontakt" class="footer-link">Kontakt</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-col-title">Dane Kontaktowe</h4>
+          <div class="footer-contact-summary">
+            <p><strong>Telefon:</strong> <a href="tel:884454894">884 454 894</a></p>
+            <p><strong>E-mail:</strong> <a href="mailto:biuro.ivnieruchomosci@gmail.com">biuro.ivnieruchomosci@gmail.com</a></p>
+            <p><strong>Region:</strong> Wrocław & Dolny Śląsk</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2026 IV Nieruchomości — Wrocław & Dolny Śląsk | Wszelkie prawa zastrzeżone</p>
+        <p>Projekt i realizacja: IV Nieruchomości</p>
+      </div>
     </div>
+  </footer>
 
-    <script>
-        // Simple inline function to change target card image preview smoothly
-        function updatePreview(targetId, newSrc) {
-            document.getElementById(targetId).src = newSrc;
+  <!-- Pure Vanilla JS scripts -->
+  <script>
+    // 1. STICKY HEADER & TEXT SCROLL CONTRAST
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // 2. MOBILE MENU HAMBURGER ACTION
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    const navLinkItems = document.querySelectorAll('.nav-link');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    navLinkItems.forEach(item => {
+      item.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // 3. SECURE PREVENT-DEFAULT SMOOTH SCROLLING FOR ALL ANCHORS
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          
+          // Compute correct offset for sticky header height
+          const headerHeight = navbar.offsetHeight || 80;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
         }
-    </script>
+      });
+    });
+
+    // 4. ELEGANT IMMERSIVE CUSTOM CURSOR FOLLOW-DOT
+    const cursor = document.getElementById('custom-cursor');
+    const follower = document.getElementById('custom-cursor-follower');
+
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      
+      if (cursor) {
+        cursor.style.left = `${x}px`;
+        cursor.style.top = `${y}px`;
+      }
+      
+      if (follower) {
+        // Soft lag animation curve
+        setTimeout(() => {
+          follower.style.left = `${x}px`;
+          follower.style.top = `${y}px`;
+        }, 30);
+      }
+    });
+
+    // Cursor hover animations for active elements
+    const clickables = document.querySelectorAll('a, button, .carousel-btn, .menu-toggle, .stat-box');
+    clickables.forEach(elem => {
+      elem.addEventListener('mouseenter', () => {
+        if (cursor) {
+          cursor.style.transform = 'translate(-50%, -50%) scale(0.5)';
+        }
+        if (follower) {
+          follower.style.transform = 'translate(-50%, -50%) scale(1.4)';
+          follower.style.borderColor = 'var(--green-dark)';
+          follower.style.backgroundColor = 'rgba(74, 140, 92, 0.05)';
+        }
+      });
+      elem.addEventListener('mouseleave', () => {
+        if (cursor) {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        }
+        if (follower) {
+          follower.style.transform = 'translate(-50%, -50%) scale(1)';
+          follower.style.borderColor = 'var(--sage)';
+          follower.style.backgroundColor = 'transparent';
+        }
+      });
+    });
+
+    // Disable follower cursor during drag or when mouse leaves window
+    document.addEventListener('mouseleave', () => {
+      if (cursor) cursor.style.opacity = '0';
+      if (follower) follower.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+      if (cursor) cursor.style.opacity = '1';
+      if (follower) follower.style.opacity = '1';
+    });
+
+    // 5. INTERSECTION OBSERVER FOR SCROLL-TRIGGER REVEALS (FADE UP)
+    const revealElements = document.querySelectorAll('.reveal');
+    const observerOptions = {
+      root: null,
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          // For nested elements or list delays
+          const children = entry.target.querySelectorAll('.delay-fade');
+          children.forEach((child, idx) => {
+            child.style.transitionDelay = `${(idx + 1) * 0.15}s`;
+            child.classList.add('revealed');
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+    // 6. VANILLA IMAGES CAROUSEL/SLIDESHOW (AUTOPLAY + CONTROLS)
+    const track = document.getElementById('carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.getElementById('carousel-prev');
+    const nextButton = document.getElementById('carousel-next');
+    const dotsContainer = document.getElementById('carousel-dots');
+    
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoplayInterval;
+
+    // Build the selection indicators dots count dynamically
+    slides.forEach((slide, index) => {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-dot');
+      if (index === 0) dot.classList.add('active');
+      dot.setAttribute('aria-label', `Zdjęcie ${index + 1}`);
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsContainer.children);
+
+    function updateCarousel(index) {
+      // Loop boundaries
+      if (index < 0) {
+        currentIndex = totalSlides - 1;
+      } else if (index >= totalSlides) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      // Slide track
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Update dots state active
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    // Actions Listeners
+    nextButton.addEventListener('click', () => {
+      updateCarousel(currentIndex + 1);
+      resetAutoplay();
+    });
+
+    prevButton.addEventListener('click', () => {
+      updateCarousel(currentIndex - 1);
+      resetAutoplay();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        updateCarousel(index);
+        resetAutoplay();
+      });
+    });
+
+    // Autoplay Cycle setup
+    function startAutoplay() {
+      autoplayInterval = setInterval(() => {
+        updateCarousel(currentIndex + 1);
+      }, 5000);
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoplayInterval);
+      startAutoplay();
+    }
+
+    // Pause autoplay on mouse enter card
+    const carouselContainer = document.getElementById('property-carousel');
+    carouselContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoplayInterval);
+    });
+    
+    carouselContainer.addEventListener('mouseleave', () => {
+      startAutoplay();
+    });
+
+    // Start everything on init
+    startAutoplay();
+
+    // 7. WROCŁAW REAL-TIME CLOCK FOR NEW HERO
+    function updateWroclawTime() {
+      const timeElement = document.getElementById('live-time');
+      if (!timeElement) return;
+      
+      const options = {
+        timeZone: 'Europe/Warsaw',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      };
+      
+      try {
+        const formatter = new Intl.DateTimeFormat('pl-PL', options);
+        timeElement.textContent = formatter.format(new Date()) + ' CET';
+      } catch (e) {
+        const now = new Date();
+        timeElement.textContent = now.toTimeString().split(' ')[0] + ' CET';
+      }
+    }
+    updateWroclawTime();
+    setInterval(updateWroclawTime, 1000);
+
+    // 8. KINETIC PORTRAIT LOGIC (3D PARALLAX WIREFRAMES)
+    const artContainer = document.querySelector('.hero-art-container');
+    const archWrapper = document.querySelector('.kinetic-arch-wrapper');
+    const captionElement = document.querySelector('.hero-art-caption');
+    const archItems = document.querySelectorAll('.kinetic-arch-item');
+    
+    if (artContainer && archWrapper) {
+      document.addEventListener('mousemove', (e) => {
+        const rect = artContainer.getBoundingClientRect();
+        
+        // Calculate the central pivot coordinate of the interactive frame container
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
+        const deltaY = (e.clientY - centerY) / (window.innerHeight / 2);
+        
+        // Tilt the rotation layout
+        const rotY = deltaX * 20; 
+        const rotX = -deltaY * 20;
+        
+        archWrapper.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        
+        // Translate individual arches at matching intervals for layered dynamic parallax depth splits
+        archItems.forEach((arch, index) => {
+          const depthFactor = (index + 1) * 7;
+          arch.style.transform = `translate3d(${deltaX * depthFactor}px, ${deltaY * depthFactor}px, ${(index - 1.5) * 60}px)`;
+          arch.style.borderColor = `rgba(223, 186, 115, ${0.3 + (index * 0.2)})`;
+          arch.style.boxShadow = `inset 0 20px 40px rgba(223, 186, 115, ${0.07 + (index * 0.04)}), 0 15px 35px rgba(0, 0, 0, 0.35), 0 0 25px rgba(223, 186, 115, ${0.1 + (index * 0.1)})`;
+          arch.style.backgroundColor = `rgba(223, 186, 115, ${0.04 + (index * 0.02)})`;
+        });
+        
+        if (captionElement) {
+          captionElement.style.color = 'var(--white)';
+          captionElement.style.textShadow = '0 0 8px rgba(223, 186, 115, 0.4)';
+        }
+      });
+      
+      // Reset layout when cursor leaves area
+      artContainer.addEventListener('mouseleave', () => {
+        archWrapper.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        archItems.forEach((arch, index) => {
+          arch.style.transform = `translate3d(0px, 0px, ${(index - 1.5) * 60}px)`;
+          arch.style.borderColor = index === 2 ? 'var(--gold)' : index === 3 ? 'var(--white)' : 'rgba(223, 186, 115, 0.22)';
+          arch.style.boxShadow = 'inset 0 20px 40px rgba(223, 186, 115, 0.03), 0 15px 35px rgba(0, 0, 0, 0.25)';
+          arch.style.backgroundColor = 'transparent';
+        });
+        if (captionElement) {
+          captionElement.style.color = 'rgba(255, 255, 160, 0.4)';
+          captionElement.style.textShadow = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
