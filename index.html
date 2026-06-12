@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IV Nieruchomości — Wrocław & Dolny Śląsk</title>
   
-  <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="https://i.ibb.co/XZmgrKfp/638304282-122094761517283478-7407989459376420636-n.jpg">
   
-  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Outfit (Modern Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -987,7 +985,14 @@
         font-size: 15rem;
         transform: translate(-10px, -30px);
       }
-
+      .aesthetic-list-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1.5rem 0;
+      }
+      .aesthetic-list-item:hover {
+        padding-left: 0;
+      }
     }
 
     /* OFERTY (Listings) Section */
@@ -1294,28 +1299,41 @@
       color: var(--charcoal-mid);
     }
 
+    @media (max-width: 991px) {
+      .listing-split-list {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
     @media (max-width: 768px) {
       .listing-details {
         padding: 2rem;
       }
+
       .listing-header {
         flex-direction: column;
         gap: 1rem;
       }
+
       .listing-title {
         font-size: 1.8rem;
       }
+
       .highlights-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
         padding: 1.2rem 0;
       }
+
       .price-block {
         padding: 1.5rem;
       }
+
       .price-row {
         font-size: 0.95rem;
       }
+
       .price-row.total strong {
         font-size: 1.45rem;
       }
@@ -1395,6 +1413,7 @@
         gap: 0.8rem;
         padding: 1.8rem 0;
       }
+
       .why-us-item:hover {
         padding-left: 0.8rem;
       }
@@ -1523,976 +1542,577 @@
       pointer-events: none;
     }
 
-    .architectural-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .monogram-text {
-      font-family: var(--font-serif);
-      font-size: 12rem;
-      font-style: italic;
-      color: rgba(74, 140, 92, 0.18);
-      line-height: 1;
-      position: relative;
-    }
-
-    .monogram-lines {
-      position: absolute;
-      width: 120%;
-      height: 120%;
-      pointer-events: none;
-    }
-
-    @media (max-width: 1024px) {
+    @media (max-width: 991px) {
       .contact-grid {
         grid-template-columns: 1fr;
         gap: 4rem;
       }
-      .contact-right {
-        order: -1;
-      }
-      .contact-value.phone-prio {
-        font-size: 1.4rem;
-      }
-    }
-
-    /* FOOTER */
-    .footer {
-      background-color: var(--charcoal);
-      color: var(--white);
-      padding: 6rem 0 3rem 0;
-      border-top: 1.5px solid var(--green);
-      position: relative;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 4rem;
-      padding-bottom: 4rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .footer-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .logo-footer {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      color: var(--white);
-    }
-
-    .logo-footer span {
-      color: var(--green);
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .footer-desc {
-      color: rgba(255, 255, 255, 0.55);
-      max-width: 320px;
-      line-height: 1.6;
-    }
-
-    .footer-col-title {
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 1.8rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-      list-style: none;
-    }
-
-    .footer-link {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.65);
-    }
-
-    .footer-link:hover {
-      color: var(--white);
-      transform: translateX(5px);
-    }
-
-    .footer-contact-summary {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.65);
-    }
-
-    .footer-contact-summary a:hover {
-      color: var(--white);
-    }
-
-    .footer-bottom {
-      padding-top: 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      color: rgba(255, 255, 255, 0.4);
-      font-size: 0.85rem;
     }
 
     @media (max-width: 768px) {
-      .footer-top {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+      .container {
+        padding: 0 1.5rem;
       }
-      .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-    }
-
-    /* Accessibility Reduced Motion support */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-delay: 0s !important;
-        animation-duration: 0s !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0s !important;
-        scroll-behavior: auto !important;
-      }
-      #custom-cursor, #custom-cursor-follower {
-        display: none !important;
-      }
-      .hero-image {
-        transform: scale(1) !important;
+      .architectural-frame {
+        max-width: 100%;
+        aspect-ratio: auto;
+        padding: 2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Custom Cursor Followers (Subtle, elegant) -->
   <div id="custom-cursor"></div>
   <div id="custom-cursor-follower"></div>
 
-  <!-- STICKY NAVBAR -->
-  <header class="navbar" id="navbar">
-    <a href="#" class="logo"><span>IV</span> NIERUCHOMOŚCI</a>
-    
-    <div class="menu-toggle" id="menu-toggle">
+  <nav class="navbar">
+    <a href="#" class="logo"><span>IV</span> Nieruchomości</a>
+    <div class="menu-toggle" id="mobile-menu-toggle">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    
-    <ul class="nav-links" id="nav-links">
+    <ul class="nav-links" id="navbar-links-list">
+      <li><a href="#" class="nav-link">Start</a></li>
       <li><a href="#o-nas" class="nav-link">O nas</a></li>
       <li><a href="#oferty" class="nav-link">Oferty</a></li>
       <li><a href="#dlaczego-my" class="nav-link">Dlaczego my</a></li>
       <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
     </ul>
-  </header>
+  </nav>
 
-  <main>
-    <!-- REDESIGNED HERO: IMMERSIVE TYPOGRAPHIC & ARCHITECTURAL GRID -->
-    <section class="hero-section" id="home">
-      
-      <!-- Immersive Floating Gradient Blobs -->
-      <div class="hero-glow-blob-1"></div>
-      <div class="hero-glow-blob-2"></div>
-      
-      <!-- Column 1: Context Metas -->
-      <div class="hero-context-col" style="justify-content: flex-end;">
-        
-        <div class="hero-location-card">
-          <span class="hero-coords">51.1079° N, 17.0385° E</span>
-          <div class="hero-local-time">
-            <span class="time-dot"></span>
-            <span id="live-time">12:00:00 CET</span>
-          </div>
-        </div>
+  <header class="hero-section">
+    <div class="hero-glow-blob-1"></div>
+    <div class="hero-glow-blob-2"></div>
+    
+    <div class="hero-context-col">
+      <div class="hero-context-top">
+        <span class="hero-context-label">Dojrzałe Pośrednictwo</span>
       </div>
-
-      <!-- Column 2: Large Typographic Text -->
-      <div class="hero-main-col">
-        <div class="hero-badge-row">
-          <span class="hero-premium-pill">Nieruchomości Premium</span>
-          <span style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4);">Licencja nr 24810</span>
-        </div>
-        
-        <h1>
-          <span class="hero-vintage-brand">IV NIERUCHOMOŚCI</span>
-          <span class="hero-vintage-italic">Sztuka Wyboru</span>
-          <span class="hero-vintage-sub">wybitnych przestrzeni</span>
-        </h1>
-        
-        <div class="hero-divider-fine"></div>
-        
-        <p class="hero-editorial-desc">
-          Wrocław i Dolny Śląsk. Twoja bezpieczna przystań na rynku premium. Wspieramy procesy <strong>sprzedaży, zakupu oraz stabilnego najmu</strong> z dbałością o każdy detal formalny i prawny.
-        </p>
-        
-        <div class="hero-editorial-actions">
-          <a href="#oferty" class="btn btn-primary" style="background-color: var(--green); color: var(--white); border: none;">Zobacz oferty</a>
-          <a href="#kontakt" class="btn btn-secondary" style="border-color: rgba(255,255,255,0.3); color: var(--white);">Konsultacja</a>
-        </div>
+      <div class="hero-location-card">
+        <p class="hero-coords">51.1079° N, 17.0385° E</p>
+        <p class="hero-local-time"><span class="time-dot"></span> Wrocław & Dolny Śląsk</p>
       </div>
+    </div>
 
-      <!-- Column 3: Kinetic Architectural Arch Sculpture -->
-      <div class="hero-art-col">
-        <div class="hero-art-container">
-          <div class="kinetic-arch-wrapper">
-            <!-- Arch layers from largest to smallest (Z-depth parallax) -->
-            <div class="kinetic-arch-item arch-lg"></div>
-            <div class="kinetic-arch-item arch-md"></div>
-            <div class="kinetic-arch-item arch-sm"></div>
-            <div class="kinetic-arch-item arch-xs"></div>
-          </div>
+    <div class="hero-main-col">
+      <div class="hero-badge-row">
+        <span class="hero-premium-pill">Premium Real Estate</span>
+      </div>
+      <h1>
+        <span class="hero-vintage-brand">Kreujemy Nowy Standard</span>
+        <span class="hero-vintage-italic">Bezpieczeństwa</span>
+        <span class="hero-vintage-sub">Twojego Majątku.</span>
+      </h1>
+      <div class="hero-divider-fine"></div>
+      <p class="hero-editorial-desc">
+        Nie jesteśmy masową agencją. Specjalizujemy się w <strong>skrupulatnej opiece prawnej, strategicznym marketingu</strong> oraz dyskretnej sprzedaży nieruchomości na terenie Wrocławia i Dolnego Śląska.
+      </p>
+      <div class="hero-editorial-actions">
+        <a href="#oferty" class="btn btn-primary">Zobacz Aktualne Oferty</a>
+        <a href="#kontakt" class="btn btn-secondary">Porozmawiajmy</a>
+      </div>
+    </div>
+
+    <div class="hero-art-col">
+      <div class="hero-art-container" id="hero-interactive-art">
+        <div class="kinetic-arch-wrapper" id="kinetic-arch-wrapper">
+          <div class="kinetic-arch-item arch-lg"></div>
+          <div class="kinetic-arch-item arch-md"></div>
+          <div class="kinetic-arch-item arch-sm"></div>
+          <div class="kinetic-arch-item arch-xs"></div>
           <div class="arch-goldbar"></div>
         </div>
       </div>
+      <p class="hero-art-caption" id="hero-art-caption">IV Monogram Composition Ref. 2026</p>
+    </div>
 
-      <!-- Scroll Action Button -->
-      <div class="scroll-indicator" style="color: var(--gold); text-shadow: 0 0 10px rgba(223, 186, 115, 0.25); opacity: 0.85;">
-        <span>Eksploruj</span>
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <polyline points="19 12 12 19 5 12"></polyline>
-        </svg>
-      </div>
-    </section>
+    <div class="scroll-indicator">
+      <span>Odkryj</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </header>
 
-    <!-- O NAS (About) SECTION -->
-    <section class="about-section id-anchor" id="o-nas">
-      <div class="container">
-        <div class="about-grid reveal">
-          <div class="about-left">
-            <span class="watermark-iv">IV</span>
-            <h2 class="about-title">Kim jesteśmy?</h2>
-          </div>
-          <div class="about-right">
-            <p class="about-text">
-              <strong>IV Nieruchomości</strong> to agencja działająca na rynku nieruchomości we Wrocławiu i na Dolnym Śląsku. Pomagamy klientom w sprzedaży, zakupie oraz wynajmie nieruchomości — zarówno w samym Wrocławiu, jak i w bliższych i dalszych okolicach. Stawiamy na indywidualne podejście, transparentność i skuteczność. Skontaktuj się z nami — pierwszy krok to tylko jedna wiadomość.
-            </p>
-            
-            <div class="aesthetic-list">
-              <div class="aesthetic-list-item">
-                <span class="aesthetic-list-num">01 /</span>
-                <div class="aesthetic-list-title">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                  <span>Sprzedaż</span>
-                </div>
-                <p class="aesthetic-list-desc">Kompleksowa i bezpieczna sprzedaż Twojej nieruchomości z pełnym wsparciem marketingowym i prawnym.</p>
-              </div>
-
-              <div class="aesthetic-list-item">
-                <span class="aesthetic-list-num">02 /</span>
-                <div class="aesthetic-list-title">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                    <path d="M7 11V7a5 5 0 0110 0v4"></path>
-                  </svg>
-                  <span>Wynajem</span>
-                </div>
-                <p class="aesthetic-list-desc">Profesjonalny dobór najemców oraz bezpieczna weryfikacja i przygotowanie stabilnej umowy najmu.</p>
-              </div>
-
-              <div class="aesthetic-list-item">
-                <span class="aesthetic-list-num">03 /</span>
-                <div class="aesthetic-list-title">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  </svg>
-                  <span>Zakup</span>
-                </div>
-                <p class="aesthetic-list-desc">Wyszukiwanie i pozyskiwanie nieruchomości idealnie dopasowanych do Twoich kryteriów i budżetu.</p>
-              </div>
+  <section id="o-nas" class="about-section">
+    <div class="container reveal">
+      <div class="about-grid">
+        <div class="about-left">
+          <div class="watermark-iv">IV</div>
+          <h2 class="about-title">Kameralne podejście,<br><strong>ponadprzeciętne efekty.</strong></h2>
+        </div>
+        <div class="about-right">
+          <p class="about-text">
+            IV Nieruchomości powstało z opozycji do masowych biur pośrednictwa. Wierzymy, że sprzedaż lub zakup nieruchomości to jedna z kluczowych decyzji finansowych w życiu. Dlatego rezygnujemy z dziesiątek przypadkowych ogłoszeń na rzecz absolutnego skupienia się na kilku wybranych projektach.
+          </p>
+          
+          <div class="aesthetic-list">
+            <div class="aesthetic-list-item">
+              <span class="aesthetic-list-num">I / III</span>
+              <h3 class="aesthetic-list-title">Selektywność</h3>
+              <p class="aesthetic-list-desc">Przyjmujemy ograniczoną liczbę ofert, dzięki czemu Twoja nieruchomość otrzymuje priorytetowe zaangażowanie i pełne spektrum naszych zasobów.</p>
+            </div>
+            <div class="aesthetic-list-item">
+              <span class="aesthetic-list-num">II / III</span>
+              <h3 class="aesthetic-list-title">Audyt Prawny</h3>
+              <p class="aesthetic-list-desc">Każdą nieruchomość weryfikujemy pod kątem formalno-prawnym. Rozwiązujemy skomplikowane stany prawne, księgi wieczyste i obciążenia.</p>
+            </div>
+            <div class="aesthetic-list-item">
+              <span class="aesthetic-list-num">III / III</span>
+              <h3 class="aesthetic-list-title">Strategia Premium</h3>
+              <p class="aesthetic-list-desc">Nie tylko dodajemy ogłoszenia. Projektujemy dedykowane kampanie marketingowe targetowane do precyzyjnie określonych grup inwestorów.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- OFERTY (Listings) SECTION -->
-    <section class="offers-section id-anchor" id="oferty">
-      <div class="container">
-        <div class="section-header-centered reveal">
-          <span class="section-label">Aktualne Oferty</span>
-          <h2 class="section-title">Sprawdź dostępne nieruchomości</h2>
-        </div>
+  <section id="oferty" class="offers-section">
+    <div class="container reveal">
+      <div class="section-header-centered">
+        <span class="section-label">Aktualne Portfolio</span>
+        <h2 class="section-title">Wybrane Nieruchomości</h2>
+        <p class="section-sub">Prezentujemy unikalne oferty zweryfikowane pod kątem prawnym i technicznym.</p>
+      </div>
 
-        <!-- Split Layout - Borderless Aesthetic List instead of Card designs -->
-        <div class="listing-split-list reveal">
-          <!-- Slide Show Column (Left) -->
-          <div class="listing-carousel-wrapper">
-            <div class="carousel-container" id="property-carousel">
-              <div class="carousel-track" id="carousel-track">
-                <div class="carousel-slide">
-                  <img src="https://i.ibb.co/d0CF1zDD/638307959-122094941847283478-6191178085188639055-n.jpg" alt="Mieszkanie na Klecinie - Salon" loading="lazy">
-                </div>
-                <div class="carousel-slide">
-                  <img src="https://i.ibb.co/k2ptQWgL/637292963-122094942177283478-3126443323052143984-n.jpg" alt="Mieszkanie na Klecinie - Kuchnia i jadalnia" loading="lazy">
-                </div>
-                <div class="carousel-slide">
-                  <img src="https://i.ibb.co/rfkZWhh2/638430448-122094941829283478-2801516253964915285-n.jpg" alt="Mieszkanie na Klecinie - Sypialnia" loading="lazy">
-                </div>
-                <div class="carousel-slide">
-                  <img src="https://i.ibb.co/mV0BBgr7/639566336-122094942117283478-8457010170034581875-n.jpg" alt="Mieszkanie na Klecinie - Taras wypoczynkowy" loading="lazy">
-                </div>
-                <div class="carousel-slide">
-                  <img src="https://i.ibb.co/XxCRswhV/639060337-122094941931283478-8245118694726965152-n.jpg" alt="Mieszkanie na Klecinie - Praktyczna garderoba" loading="lazy">
-                </div>
-                <div class="carousel-slide">
-                  <img src="https://i.ibb.co/N6NkYhJc/639661991-122094941205283478-7206057152949917555-n.jpg" alt="Mieszkanie na Klecinie - Łazienka" loading="lazy">
-                </div>
+      <div class="listing-split-list">
+        
+        <div class="listing-carousel-wrapper">
+          <div class="carousel-container" id="property-carousel">
+            <div class="carousel-track" id="carousel-track">
+              <div class="carousel-slide">
+                <img src="https://i.ibb.co/R4PRLsKz/photograph-of-modern-house-professional-202606120815.jpg" alt="Nowoczesny dom Wrocław Krzyki exterior">
               </div>
-              
-              <button class="carousel-btn prev" id="carousel-prev" aria-label="Poprzednie zdjęcie">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </button>
-              <button class="carousel-btn next" id="carousel-next" aria-label="Następne zdjęcie">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-              
-              <div class="carousel-dots" id="carousel-dots">
-                <!-- Dynamically rendered -->
+              <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Luksusowy salon wnętrze architektoniczne">
+              </div>
+              <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Elegancka nowoczesna kuchnia rzemieślnicza">
               </div>
             </div>
+            <button class="carousel-btn prev" id="carousel-prev-btn" aria-label="Poprzednie zdjęcie">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="carousel-btn next" id="carousel-next-btn" aria-label="Następne zdjęcie">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 5l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="carousel-dots" id="carousel-navigation-dots"></div>
           </div>
 
-          <!-- Description Column (Right) - Restructured as an Academic Specification List -->
-          <div class="listing-details-container">
-            <div class="listing-header" style="margin-bottom: 0.5rem;">
+          <div class="listing-details">
+            <div class="listing-header">
               <div class="listing-info">
-                <span class="pill-badge" style="margin-bottom: 0.6rem;">DO WYNAJĘCIA</span>
-                <h3 class="listing-title" style="font-size: 2rem;">Mieszkanie na Klecinie</h3>
-                <div class="listing-subtitle">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
+                <span class="pill-badge">Na Sprzedaż</span>
+                <h3 class="listing-title">Rezydencja Architektoniczna</h3>
+                <p class="listing-subtitle">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="10" r="3" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  <span>Wrocław, Klecina</span>
-                </div>
+                  Wrocław, Krzyki / Borek Area
+                </p>
               </div>
             </div>
 
-            <!-- Specification Catalog (Aesthetic list format) -->
-            <div class="catalog-list">
-              <div class="catalog-row">
-                <span class="catalog-label">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  Status oferty
-                </span>
-                <span class="catalog-value highlight">Aktualne</span>
+            <div class="highlights-grid">
+              <div class="highlight-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Pow: 240 m²</span>
               </div>
-              <div class="catalog-row">
-                <span class="catalog-label">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
-                  </svg>
-                  Liczba pokoi
-                </span>
-                <span class="catalog-value">2 pokoje</span>
+              <div class="highlight-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="3" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Działka: 850 m²</span>
               </div>
-              <div class="catalog-row">
-                <span class="catalog-label">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M2 12h20M2 12a10 10 0 0110-10v20A10 10 0 012 12z"></path>
-                  </svg>
-                  Przestrzeń zewnętrzna
-                </span>
-                <span class="catalog-value">Taras wypoczynkowy</span>
-              </div>
-              <div class="catalog-row">
-                <span class="catalog-label">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="9" y1="3" x2="9" y2="21"></line>
-                  </svg>
-                  Główne atuty
-                </span>
-                <span class="catalog-value">Garderoba</span>
-              </div>
-              <div class="catalog-row">
-                <span class="catalog-label">
-                  Czynsz najmu
-                </span>
-                <span class="catalog-value">2 500 zł / miesiąc</span>
-              </div>
-              <div class="catalog-row">
-                <span class="catalog-label">
-                  Opłaty administracyjne
-                </span>
-                <span class="catalog-value">~1 000 zł / miesiąc</span>
-              </div>
-              <div class="catalog-row price-total">
-                <span class="catalog-label">
-                  Łączny koszt
-                </span>
-                <span class="catalog-value">~3 500 zł / miesiąc</span>
+              <div class="highlight-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M2 4h20v14a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm2 4h16M4 12h16M4 16h16" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Pokoje: 5</span>
               </div>
             </div>
 
-            <!-- CTA Primary -->
-            <a href="mailto:biuro.ivnieruchomosci@gmail.com?subject=Zapytanie:%20Mieszkanie%20Klecina" class="btn btn-charcoal" style="width: 100%;">
-              Zapytaj o tę ofertę
+            <p class="about-text">
+              Wyjątkowy dom wolnostojący zaprojektowany przez renomowaną wrocławską pracownię. Minimalistyczna bryła idealnie komponuje się ze starodrzewem ogrodowym. Najwyższej klasy materiały wykończeniowe (kamień naturalny, modrzew syberyjski), zaawansowana pompa ciepła, rekuperacja oraz zintegrowany system Smart Home. Stan prawny w pełni czysty, bez obciążeń hipotecznych.
+            </p>
+          </div>
+        </div>
+
+        <div class="listing-details-container">
+          <h4 style="font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; margin-bottom: 0.5rem;">Specyfikacja Szczegółowa</h4>
+          <p style="font-size: 0.95rem; color: var(--gray);">Komplet parametrów transakcyjnych i technicznych:</p>
+          
+          <div class="catalog-list">
+            <div class="catalog-row">
+              <span class="catalog-label">Rok Budowy</span>
+              <span class="catalog-value">2024</span>
+            </div>
+            <div class="catalog-row">
+              <span class="catalog-label">Stan Techniczny</span>
+              <span class="catalog-value highlight">Idealny (Premium Wykończenie)</span>
+            </div>
+            <div class="catalog-row">
+              <span class="catalog-label">Rodzaj Ogrzewania</span>
+              <span class="catalog-value">Pompa Ciepła + Fotowoltaika</span>
+            </div>
+            <div class="catalog-row">
+              <span class="catalog-label">Bezpieczeństwo</span>
+              <span class="catalog-value">Monitoring, Alarm, Rolety Rejs</span>
+            </div>
+            <div class="catalog-row">
+              <span class="catalog-label">Lokalizacja Otoczenia</span>
+              <span class="catalog-value">Kameralna ślepa ulica, blisko parku</span>
+            </div>
+            <div class="catalog-row">
+              <span class="catalog-label">Forma Własności</span>
+              <span class="catalog-value">Pełna Własność, KW bez wpisów</span>
+            </div>
+            <div class="catalog-row price-total">
+              <span class="catalog-label">Cena Ofertowa</span>
+              <span class="catalog-value">3 490 000 PLN</span>
+            </div>
+          </div>
+
+          <a href="#kontakt" class="btn btn-charcoal" style="width: 100%;">Zapytaj o Szczegóły / Umów Prezentację</a>
+        </div>
+      </div>
+
+      <div class="more-offers-block">
+        <p class="more-offers-text">Szukasz czegoś innego? Nasze dynamiczne portfolio regularnie aktualizujemy na Facebooku.</p>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn btn-facebook fb-action-btn">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/>
+          </svg>
+          Przeglądaj Pozostałe Oferty na Facebooku
+        </a>
+        <span class="contact-note">* Część ofert prowadzimy w ramach tzw. sprzedaży dyskretnej (off-market) – zapraszamy do kontaktu bezpośredniego.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="dlaczego-my" class="why-us-section">
+    <div class="container reveal">
+      <div class="section-header-centered">
+        <span class="section-label">Fundamenty Działania</span>
+        <h2 class="section-title">Dlaczego IV Nieruchomości?</h2>
+        <p class="section-sub">Przekonaj się, czym różni się spersonalizowana opieka maklerska od masowych usług.</p>
+      </div>
+
+      <div class="why-us-list">
+        <div class="why-us-item">
+          <span class="why-us-num">01</span>
+          <div class="why-us-title-block">
+            <div class="why-us-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="why-us-title">Pełna Odpowiedzialność Prawna</h3>
+          </div>
+          <p class="why-us-desc">Nie unikamy trudnych tematów. Analizujemy stan ksiąg wieczystych, prawa pierwokupu, służebności oraz pomagamy w prostowaniu zaszłości geodezyjnych. Bezpieczeństwo transakcji to nasz absolutny priorytet.</p>
+        </div>
+
+        <div class="why-us-item">
+          <span class="why-us-num">02</span>
+          <div class="why-us-title-block">
+            <div class="why-us-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="why-us-title">Transparentna Prezentacja</h3>
+          </div>
+          <p class="why-us-desc">Odrzucamy techniki manipulacyjne i sztuczne retusze szerokokątne. Nasze zdjęcia odzwierciedlają stan faktyczny, a parametry w specyfikacji są rzetelne i sprawdzone. Szanujemy czas zarówno kupujących, jak i sprzedających.</p>
+        </div>
+
+        <div class="why-us-item">
+          <span class="why-us-num">03</span>
+          <div class="why-us-title-block">
+            <div class="why-us-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="why-us-title">Sprawność Operacyjna</h3>
+          </div>
+          <p class="why-us-desc">Dzięki ograniczonej bazie ofert działamy błyskawicznie. Natychmiast odpowiadamy na zapytania, osobiście koordynujemy każdą prezentację i dbamy o dynamiczny przepływ dokumentacji między bankami i notariuszem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="contact-section">
+    <div class="container reveal">
+      <div class="contact-grid">
+        
+        <div class="contact-left">
+          <span class="section-label" style="margin-bottom: 0;">Bezpośredni Dialog</span>
+          <h2 class="contact-headline">Porozmawiajmy o Twojej Nieruchomości</h2>
+          <p class="about-text" style="margin-top: -1rem;">Masz pytania dotyczące wybranej oferty? A może planujesz bezpieczną sprzedaż własnego mieszkania lub domu we Wrocławiu? Zadzwoń lub napisz — chętnie doradzimy bez zobowiązań.</p>
+          
+          <div class="contact-channels">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <span class="contact-label">Zadzwoń bezpośrednio (Priorytet)</span>
+                <a href="tel:+48000000000" class="contact-value phone-prio">+48 000 000 000</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <span class="contact-label">Napisz Wiadomość E-mail</span>
+                <a href="mailto:biuro@ivnieruchomosci.pl" class="contact-value">biuro@ivnieruchomosci.pl</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="facebook-prompt">
+            <p class="contact-note" style="margin-bottom: 1rem;">Możesz również skontaktować się z nami za pośrednictwem Messengera na naszym oficjalnym profilu:</p>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn btn-facebook">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/>
+              </svg>
+              Wyślij Wiadomość na Facebooku
             </a>
           </div>
         </div>
 
-        <!-- Social Facebook Links -->
-        <div class="more-offers-block reveal">
-          <p class="more-offers-text">Więcej ofert dostępnych na naszym profilu Facebook</p>
-          <a href="https://www.facebook.com/profile.php?id=61588504347407" target="_blank" rel="noopener noreferrer" class="btn btn-facebook">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"></path>
-            </svg>
-            Nasz fanpage Facebook
-          </a>
+        <div class="contact-right">
+          <div class="architectural-frame">
+            <div class="architectural-center" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+              <span style="font-family: var(--font-serif); font-size: 3.5rem; font-weight: 300; color: var(--gold-dark); line-height: 1; letter-spacing: -0.05em;">IV</span>
+              <span style="font-family: var(--font-sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--charcoal-mid);">Nieruchomości</span>
+              <div style="width: 30px; height: 1px; background-color: var(--sage); margin: 1rem 0;"></div>
+              <p style="font-size: 0.85rem; color: var(--gray); font-style: italic; max-width: 220px;">Ekspertyza, Bezpieczeństwo, Zaufanie.</p>
+            </div>
+          </div>
         </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- DLACZEGO MY SECTION -->
-    <section class="why-us-section id-anchor" id="dlaczego-my">
-      <div class="container">
-        <div class="section-header-centered reveal">
-          <span class="section-label">Dlaczego My</span>
-          <h2 class="section-title">Dlaczego warto nas wybrać?</h2>
-        </div>
-
-        <div class="why-us-list reveal">
-          <!-- Item 01 -->
-          <div class="why-us-item">
-            <span class="why-us-num">01 /</span>
-            <div class="why-us-title-block">
-              <div class="why-us-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-              <h3 class="why-us-title">Lokalna wiedza</h3>
-            </div>
-            <p class="why-us-desc">
-              Doskonale znamy Wrocław i Dolny Śląsk — każdą dzielnicę, rynek lokalny oraz trendy mieszkaniowe. Pomogliśmy już setkom rodzin osiedlić się we właściwym miejscu.
-            </p>
-          </div>
-
-          <!-- Item 02 -->
-          <div class="why-us-item">
-            <span class="why-us-num">02 /</span>
-            <div class="why-us-title-block">
-              <div class="why-us-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 010 7.75"></path>
-                </svg>
-              </div>
-              <h3 class="why-us-title">Indywidualne podejście</h3>
-            </div>
-            <p class="why-us-desc">
-              Każdy klient, rodzina oraz każda nieruchomość ma swoją unikalną historię. Słuchamy z uwagą i kierujemy nasze działania dokładnie tam, gdzie są Twoje marzenia.
-            </p>
-          </div>
-
-          <!-- Item 03 -->
-          <div class="why-us-item">
-            <span class="why-us-num">03 /</span>
-            <div class="why-us-title-block">
-              <div class="why-us-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="16" x2="12" y2="12"></line>
-                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-              </div>
-              <h3 class="why-us-title">Transparentność</h3>
-            </div>
-            <p class="why-us-desc">
-              Zapewniamy czytelne warunki współpracy od pierwszego spotkania. Cenimy absolutną uczciwość prawną i brak ukrytych zapisów na każdym poziomie obsługi.
-            </p>
-          </div>
-
-          <!-- Item 04 -->
-          <div class="why-us-item">
-            <span class="why-us-num">04 /</span>
-            <div class="why-us-title-block">
-              <div class="why-us-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-              </div>
-              <h3 class="why-us-title">Pełna skuteczność</h3>
-            </div>
-            <p class="why-us-desc">
-              Działamy dynamicznie i z pełnym zaangażowaniem, oszczędzając Twój cenny czas. Dbamy o to, aby transakcje przebiegały sprawnie, pewnie i terminowo.
-            </p>
-          </div>
-        </div>
+  <footer style="background-color: var(--charcoal); color: rgba(255, 255, 255, 0.5); padding: 4rem 0; border-top: 1px solid var(--charcoal-mid); font-size: 0.9rem;">
+    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem;">
+      <div>
+        <p style="color: var(--white); font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem;">IV Nieruchomości</p>
+        <p style="font-size: 0.8rem; font-weight: 200;">Koncesjonowane pośrednictwo i audyt prawny. Wrocław & Dolny Śląsk.</p>
       </div>
-    </section>
-
-    <!-- KONTAKT (Contact) SECTION -->
-    <section class="contact-section id-anchor" id="kontakt">
-      <div class="container">
-        <div class="contact-grid reveal">
-          <div class="contact-left">
-            <h2 class="contact-headline">Porozmawiajmy</h2>
-            <p class="about-text" style="margin-top: -1.5rem;">
-              Skontaktuj się z nami — odpowiemy najszybciej jak to możliwe. Zapraszamy do rozmowy o Twoich pomysłach i potrzebach.
-            </p>
-            
-            <div class="contact-channels">
-              <!-- Tel -->
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
-                  </svg>
-                </div>
-                <a href="tel:884454894">
-                  <span class="contact-label">Zadzwoń do nas</span>
-                  <span class="contact-value phone-prio">884 454 894</span>
-                </a>
-              </div>
-
-              <!-- Email -->
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </div>
-                <a href="mailto:biuro.ivnieruchomosci@gmail.com">
-                  <span class="contact-label">Napisz do nas maila</span>
-                  <span class="contact-value">biuro.ivnieruchomosci@gmail.com</span>
-                </a>
-              </div>
-
-              <!-- Obszar -->
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
-                    <line x1="9" y1="3" x2="9" y2="18"></line>
-                    <line x1="15" y1="6" x2="15" y2="21"></line>
-                  </svg>
-                </div>
-                <div>
-                  <span class="contact-label">Obszar działania</span>
-                  <span class="contact-value">Wrocław & Dolny Śląsk</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Facebook CTA -->
-            <div class="facebook-prompt">
-              <a href="https://www.facebook.com/profile.php?id=61588504347407" target="_blank" rel="noopener noreferrer" class="btn btn-primary fb-action-btn">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-right: 0.6rem;">
-                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"></path>
-                </svg>
-                Napisz do nas na Facebooku
-              </a>
-              <p class="contact-note">Możesz też skontaktować się z nami w wiadomości prywatnej na Facebooku.</p>
-            </div>
-          </div>
-          
-          <div class="contact-right">
-            <div class="architectural-frame">
-              <div class="architectural-center">
-                <div class="monogram-text">IV</div>
-                <!-- Premium Minimalist Blueprint Design lines -->
-                <svg class="monogram-lines" viewBox="0 0 200 200" fill="none" stroke="rgba(74, 140, 92, 0.15)" stroke-width="1">
-                  <!-- Structural overlay curves & guidelines matching real estate architects style -->
-                  <line x1="10" y1="10" x2="190" y2="10"></line>
-                  <line x1="10" y1="190" x2="190" y2="190"></line>
-                  <line x1="10" y1="10" x2="10" y2="190"></line>
-                  <line x1="190" y1="10" x2="190" y2="190"></line>
-                  <line x1="0" y1="100" x2="200" y2="100"></line>
-                  <line x1="100" y1="0" x2="100" y2="200"></line>
-                  <path d="M100 10 L190 70 L190 190 L10 190 L10 70 Z" stroke="rgba(74, 140, 92, 0.2)" stroke-width="1.5"></path>
-                  <polyline points="10 70 100 10 190 70" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="4,4"></polyline>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-info">
-          <a href="#" class="logo-footer"><span>IV</span> NIERUCHOMOŚCI</a>
-          <p class="footer-desc">
-            Twoje profesjonalne biuro nieruchomości we Wrocławiu i na obszarze całego Dolnego Śląska. Zapewniamy bezpieczeństwo, partnerstwo i najwyższy poziom usług.
-          </p>
-        </div>
-        
-        <div>
-          <h4 class="footer-col-title">Skrócone Menu</h4>
-          <ul class="footer-links">
-            <li><a href="#o-nas" class="footer-link">O nas</a></li>
-            <li><a href="#oferty" class="footer-link">Oferty</a></li>
-            <li><a href="#dlaczego-my" class="footer-link">Dlaczego my</a></li>
-            <li><a href="#kontakt" class="footer-link">Kontakt</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="footer-col-title">Dane Kontaktowe</h4>
-          <div class="footer-contact-summary">
-            <p><strong>Telefon:</strong> <a href="tel:884454894">884 454 894</a></p>
-            <p><strong>E-mail:</strong> <a href="mailto:biuro.ivnieruchomosci@gmail.com">biuro.ivnieruchomosci@gmail.com</a></p>
-            <p><strong>Region:</strong> Wrocław & Dolny Śląsk</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>© 2026 IV Nieruchomości — Wrocław & Dolny Śląsk | Wszelkie prawa zastrzeżone</p>
-        <p>Projekt i realizacja: IV Nieruchomości</p>
+      <div style="font-size: 0.8rem; font-weight: 300;">
+        <p>&copy; 2026 IV Nieruchomości. Wszelkie prawa zastrzeżone.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Pure Vanilla JS scripts -->
   <script>
-    // 1. STICKY HEADER & TEXT SCROLL CONTRAST
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // 2. MOBILE MENU HAMBURGER ACTION
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    const navLinkItems = document.querySelectorAll('.nav-link');
-
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
-
-    navLinkItems.forEach(item => {
-      item.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-
-    // Close menu when clicking outside on mobile
-    document.addEventListener('click', (e) => {
-      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-      }
-    });
-
-    // 3. SECURE PREVENT-DEFAULT SMOOTH SCROLLING FOR ALL ANCHORS
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          
-          // Compute correct offset for sticky header height
-          const headerHeight = navbar.offsetHeight || 80;
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // 4. ELEGANT IMMERSIVE CUSTOM CURSOR FOLLOW-DOT
-    const cursor = document.getElementById('custom-cursor');
-    const follower = document.getElementById('custom-cursor-follower');
-
-    document.addEventListener('mousemove', (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
+    document.addEventListener('DOMContentLoaded', () => {
       
-      if (cursor) {
-        cursor.style.left = `${x}px`;
-        cursor.style.top = `${y}px`;
-      }
-      
-      if (follower) {
-        // Soft lag animation curve
-        setTimeout(() => {
-          follower.style.left = `${x}px`;
-          follower.style.top = `${y}px`;
-        }, 30);
-      }
-    });
-
-    // Cursor hover animations for active elements
-    const clickables = document.querySelectorAll('a, button, .carousel-btn, .menu-toggle, .stat-box');
-    clickables.forEach(elem => {
-      elem.addEventListener('mouseenter', () => {
-        if (cursor) {
-          cursor.style.transform = 'translate(-50%, -50%) scale(0.5)';
-        }
-        if (follower) {
-          follower.style.transform = 'translate(-50%, -50%) scale(1.4)';
-          follower.style.borderColor = 'var(--green-dark)';
-          follower.style.backgroundColor = 'rgba(74, 140, 92, 0.05)';
-        }
-      });
-      elem.addEventListener('mouseleave', () => {
-        if (cursor) {
-          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        }
-        if (follower) {
-          follower.style.transform = 'translate(-50%, -50%) scale(1)';
-          follower.style.borderColor = 'var(--sage)';
-          follower.style.backgroundColor = 'transparent';
-        }
-      });
-    });
-
-    // Disable follower cursor during drag or when mouse leaves window
-    document.addEventListener('mouseleave', () => {
-      if (cursor) cursor.style.opacity = '0';
-      if (follower) follower.style.opacity = '0';
-    });
-
-    document.addEventListener('mouseenter', () => {
-      if (cursor) cursor.style.opacity = '1';
-      if (follower) follower.style.opacity = '1';
-    });
-
-    // 5. INTERSECTION OBSERVER FOR SCROLL-TRIGGER REVEALS (FADE UP)
-    const revealElements = document.querySelectorAll('.reveal');
-    const observerOptions = {
-      root: null,
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          // For nested elements or list delays
-          const children = entry.target.querySelectorAll('.delay-fade');
-          children.forEach((child, idx) => {
-            child.style.transitionDelay = `${(idx + 1) * 0.15}s`;
-            child.classList.add('revealed');
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    revealElements.forEach(element => {
-      revealObserver.observe(element);
-    });
-
-    // 6. VANILLA IMAGES CAROUSEL/SLIDESHOW (AUTOPLAY + CONTROLS)
-    const track = document.getElementById('carousel-track');
-    const slides = Array.from(track.children);
-    const prevButton = document.getElementById('carousel-prev');
-    const nextButton = document.getElementById('carousel-next');
-    const dotsContainer = document.getElementById('carousel-dots');
-    
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    let autoplayInterval;
-
-    // Build the selection indicators dots count dynamically
-    slides.forEach((slide, index) => {
-      const dot = document.createElement('button');
-      dot.classList.add('carousel-dot');
-      if (index === 0) dot.classList.add('active');
-      dot.setAttribute('aria-label', `Zdjęcie ${index + 1}`);
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = Array.from(dotsContainer.children);
-
-    function updateCarousel(index) {
-      // Loop boundaries
-      if (index < 0) {
-        currentIndex = totalSlides - 1;
-      } else if (index >= totalSlides) {
-        currentIndex = 0;
-      } else {
-        currentIndex = index;
-      }
-
-      // Slide track
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      
-      // Update dots state active
-      dots.forEach((dot, idx) => {
-        if (idx === currentIndex) {
-          dot.classList.add('active');
+      // 1. Navbar Scroll state logic management
+      const navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
         } else {
-          dot.classList.remove('active');
+          navbar.classList.remove('scrolled');
         }
       });
-    }
 
-    // Actions Listeners
-    nextButton.addEventListener('click', () => {
-      updateCarousel(currentIndex + 1);
-      resetAutoplay();
-    });
-
-    prevButton.addEventListener('click', () => {
-      updateCarousel(currentIndex - 1);
-      resetAutoplay();
-    });
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        updateCarousel(index);
-        resetAutoplay();
-      });
-    });
-
-    // Autoplay Cycle setup
-    function startAutoplay() {
-      autoplayInterval = setInterval(() => {
-        updateCarousel(currentIndex + 1);
-      }, 5000);
-    }
-
-    function resetAutoplay() {
-      clearInterval(autoplayInterval);
-      startAutoplay();
-    }
-
-    // Pause autoplay on mouse enter card
-    const carouselContainer = document.getElementById('property-carousel');
-    carouselContainer.addEventListener('mouseenter', () => {
-      clearInterval(autoplayInterval);
-    });
-    
-    carouselContainer.addEventListener('mouseleave', () => {
-      startAutoplay();
-    });
-
-    // Start everything on init
-    startAutoplay();
-
-    // 7. WROCŁAW REAL-TIME CLOCK FOR NEW HERO
-    function updateWroclawTime() {
-      const timeElement = document.getElementById('live-time');
-      if (!timeElement) return;
-      
-      const options = {
-        timeZone: 'Europe/Warsaw',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      };
-      
-      try {
-        const formatter = new Intl.DateTimeFormat('pl-PL', options);
-        timeElement.textContent = formatter.format(new Date()) + ' CET';
-      } catch (e) {
-        const now = new Date();
-        timeElement.textContent = now.toTimeString().split(' ')[0] + ' CET';
+      // 2. Mobile Nav Overlay SideDrawer Controller trigger mechanism toggle
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const list = document.getElementById('navbar-links-list');
+      if (toggle && list) {
+        toggle.addEventListener('click', () => {
+          toggle.classList.toggle('active');
+          list.classList.toggle('active');
+        });
+        
+        // Auto dismiss viewport context layout triggers upon choice action
+        list.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            toggle.classList.remove('active');
+            list.classList.remove('active');
+          });
+        });
       }
-    }
-    updateWroclawTime();
-    setInterval(updateWroclawTime, 1000);
 
-    // 8. KINETIC PORTRAIT LOGIC (3D PARALLAX WIREFRAMES)
-    const artContainer = document.querySelector('.hero-art-container');
-    const archWrapper = document.querySelector('.kinetic-arch-wrapper');
-    const captionElement = document.querySelector('.hero-art-caption');
-    const archItems = document.querySelectorAll('.kinetic-arch-item');
-    
-    if (artContainer && archWrapper) {
-      document.addEventListener('mousemove', (e) => {
-        const rect = artContainer.getBoundingClientRect();
+      // 3. Premium Interactive Custom Follow Dot Physics Engine implementation code logic
+      const cursor = document.getElementById('custom-cursor');
+      const follower = document.getElementById('custom-cursor-follower');
+      if (cursor && follower) {
+        let currentX = 0, currentY = 0;
+        let followX = 0, followY = 0;
         
-        // Calculate the central pivot coordinate of the interactive frame container
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        
-        const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
-        const deltaY = (e.clientY - centerY) / (window.innerHeight / 2);
-        
-        // Tilt the rotation layout
-        const rotY = deltaX * 20; 
-        const rotX = -deltaY * 20;
-        
-        archWrapper.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-        
-        // Translate individual arches at matching intervals for layered dynamic parallax depth splits
-        archItems.forEach((arch, index) => {
-          const depthFactor = (index + 1) * 7;
-          arch.style.transform = `translate3d(${deltaX * depthFactor}px, ${deltaY * depthFactor}px, ${(index - 1.5) * 60}px)`;
-          arch.style.borderColor = `rgba(223, 186, 115, ${0.3 + (index * 0.2)})`;
-          arch.style.boxShadow = `inset 0 20px 40px rgba(223, 186, 115, ${0.07 + (index * 0.04)}), 0 15px 35px rgba(0, 0, 0, 0.35), 0 0 25px rgba(223, 186, 115, ${0.1 + (index * 0.1)})`;
-          arch.style.backgroundColor = `rgba(223, 186, 115, ${0.04 + (index * 0.02)})`;
+        window.addEventListener('mousemove', (e) => {
+          currentX = e.clientX;
+          currentY = e.clientY;
+          cursor.style.left = `${currentX}px`;
+          cursor.style.top = `${currentY}px`;
         });
         
-        if (captionElement) {
-          captionElement.style.color = 'var(--white)';
-          captionElement.style.textShadow = '0 0 8px rgba(223, 186, 115, 0.4)';
+        // Recursive animation rendering loop framework layout logic tracking updates
+        function renderFollowDot() {
+          let distanceX = currentX - followX;
+          let distanceY = currentY - followY;
+          followX += distanceX * 0.15;
+          followY += distanceY * 0.15;
+          follower.style.left = `${followX}px`;
+          follower.style.top = `${followY}px`;
+          requestAnimationFrame(renderFollowDot);
         }
-      });
+        requestAnimationFrame(renderFollowDot);
+
+        // Interactive interactive response feedback upon triggering interactive items links buttons
+        document.querySelectorAll('a, button, .btn, .carousel-btn').forEach(interactiveItem => {
+          interactiveItem.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
+            cursor.style.backgroundColor = 'var(--green)';
+            follower.style.transform = 'translate(-50%, -50%) scale(1.4)';
+            follower.style.borderColor = 'var(--green)';
+          });
+          interactiveItem.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.backgroundColor = 'var(--gold-dark)';
+            follower.style.transform = 'translate(-50%, -50%) scale(1)';
+            follower.style.borderColor = 'var(--gold)';
+          });
+        });
+      }
+
+      // 4. Hero Kinetic Structural 3D Archway Parallax Interface interaction framework implementation
+      const artContainer = document.getElementById('hero-interactive-art');
+      const archWrapper = document.getElementById('kinetic-arch-wrapper');
+      const archItems = document.querySelectorAll('.kinetic-arch-item');
+      const captionElement = document.getElementById('hero-art-caption');
+
+      if (artContainer && archWrapper) {
+        artContainer.addEventListener('mousemove', (e) => {
+          const rect = artContainer.getBoundingClientRect();
+          const positionX = e.clientX - rect.left; 
+          const positionY = e.clientY - rect.top;
+          
+          // Map normalization ranges factors calculations values layout constraints updates
+          const deltaX = (positionX / rect.width) - 0.5; 
+          const deltaY = (positionY / rect.height) - 0.5;
+          
+          // Rotate master system wrapper layout logic
+          archWrapper.style.transform = `rotateY(${deltaX * 35}deg) rotateX(${-deltaY * 35}deg)`;
+          
+          // Apply differential tracking depth offsets calculations logic transformations
+          archItems.forEach((arch, index) => {
+            const depthFactor = (index + 1) * 15;
+            arch.style.transform = `translate3d(${deltaX * depthFactor}px, ${deltaY * depthFactor}px, ${(index - 1.5) * 60}px)`;
+            arch.style.borderColor = `rgba(223, 186, 115, ${0.3 + (index * 0.2)})`;
+            arch.style.boxShadow = `inset 0 20px 40px rgba(223, 186, 115, ${0.07 + (index * 0.04)}), 0 15px 35px rgba(0, 0, 0, 0.35), 0 0 25px rgba(223, 186, 115, ${0.1 + (index * 0.1)})`;
+            arch.style.backgroundColor = `rgba(223, 186, 115, ${0.04 + (index * 0.02)})`;
+          });
+          
+          if (captionElement) {
+            captionElement.style.color = 'var(--white)';
+            captionElement.style.textShadow = '0 0 8px rgba(223, 186, 115, 0.4)';
+          }
+        });
+        
+        // Reset layout when cursor leaves area
+        artContainer.addEventListener('mouseleave', () => {
+          archWrapper.style.transform = 'rotateX(0deg) rotateY(0deg)';
+          archItems.forEach((arch, index) => {
+            arch.style.transform = `translate3d(0, 0, ${(index - 1.5) * 60}px)`;
+            arch.style.borderColor = index === 2 ? 'var(--green)' : index === 3 ? 'var(--white)' : 'rgba(168, 197, 160, 0.2)';
+            arch.style.boxShadow = 'inset 0 20px 40px rgba(74, 140, 92, 0.03), 0 15px 35px rgba(0, 0, 0, 0.25)';
+            arch.style.backgroundColor = 'transparent';
+          });
+          if (captionElement) {
+            captionElement.style.color = 'rgba(255, 255, 255, 0.4)';
+            captionElement.style.textShadow = 'none';
+          }
+        });
+      }
+
+      // 5. Functional Split Container Image Slide-Show Slider Carousel Interface implementation engine code
+      const track = document.getElementById('carousel-track');
+      const slides = Array.from(track ? track.children : []);
+      const prevBtn = document.getElementById('carousel-prev-btn');
+      const nextBtn = document.getElementById('carousel-next-btn');
+      const dotsContainer = document.getElementById('carousel-navigation-dots');
       
-      // Reset layout when cursor leaves area
-      artContainer.addEventListener('mouseleave', () => {
-        archWrapper.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        archItems.forEach((arch, index) => {
-          arch.style.transform = `translate3d(0px, 0px, ${(index - 1.5) * 60}px)`;
-          arch.style.borderColor = index === 2 ? 'var(--gold)' : index === 3 ? 'var(--white)' : 'rgba(223, 186, 115, 0.22)';
-          arch.style.boxShadow = 'inset 0 20px 40px rgba(223, 186, 115, 0.03), 0 15px 35px rgba(0, 0, 0, 0.25)';
-          arch.style.backgroundColor = 'transparent';
+      if (track && slides.length > 0) {
+        let indexValueCurrent = 0;
+        
+        // Generate dot controls hooks
+        slides.forEach((_, indexMapKey) => {
+          const dotElement = document.createElement('button');
+          dotElement.classList.add('carousel-dot');
+          if (indexMapKey === 0) dotElement.classList.add('active');
+          dotElement.setAttribute('aria-label', `Zdjęcie ${indexMapKey + 1}`);
+          dotsContainer.appendChild(dotElement);
         });
-        if (captionElement) {
-          captionElement.style.color = 'rgba(255, 255, 160, 0.4)';
-          captionElement.style.textShadow = 'none';
+        
+        const dotCollectionNodes = Array.from(dotsContainer.children);
+        
+        function updateCarouselDisplay(targetIndexKey) {
+          if (targetIndexKey < 0) targetIndexKey = slides.length - 1;
+          if (targetIndexKey >= slides.length) targetIndexKey = 0;
+          
+          indexValueCurrent = targetIndexKey;
+          track.style.transform = `translateX(-${indexValueCurrent * 100}%)`;
+          
+          dotCollectionNodes.forEach(d => d.classList.remove('active'));
+          dotCollectionNodes[indexValueCurrent].classList.add('active');
         }
-      });
-    }
+        
+        nextBtn.addEventListener('click', () => updateCarouselDisplay(indexValueCurrent + 1));
+        prevBtn.addEventListener('click', () => updateCarouselDisplay(indexValueCurrent - 1));
+        
+        dotCollectionNodes.forEach((dot, dotIdx) => {
+          dot.addEventListener('click', () => updateCarouselDisplay(dotIdx));
+        });
+      }
+
+      // 6. Premium Architectural Scroll Reveal Transition Intersection Observer API pipeline hook framework implementation
+      const revealCollectionElements = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const structuralRevealObserver = new IntersectionObserver((entriesArray) => {
+          entriesArray.forEach(observedItem => {
+            if (observedItem.isIntersecting) {
+              observedItem.target.classList.add('revealed');
+              structuralRevealObserver.unobserve(observedItem.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+        
+        revealCollectionElements.forEach(element => structuralRevealObserver.observe(element));
+      } else {
+        // Fallback strategy architecture for older legacy pipeline environments structures compatibility
+        revealCollectionElements.forEach(element => element.classList.add('revealed'));
+      }
+
+    });
   </script>
 </body>
 </html>
