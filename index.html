@@ -1792,6 +1792,44 @@ img, svg, iframe, video {
     font-size: 1.1rem !important;
   }
 }
+    /* ==========================================================================
+   FINAL OVERFLOW AND SCROLL WOBBLE ELIMINATION PATCH
+   ========================================================================== */
+
+/* Strict viewport constraint to block any hidden sub-pixel bleeding */
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+/* Force architectural watermark texts to trim safely within the layout grids */
+.about-left, .about-section, .contact-right, .contact-section {
+  overflow: hidden !important;
+}
+
+/* Fix blueprint SVG overlap expanding past its container bounds on phones */
+@media (max-width: 576px) {
+  .monogram-lines {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+}
+
+/* Complete removal of cursor elements from DOM overflow math on mobile */
+@media (max-width: 1024px) {
+  #custom-cursor, 
+  #custom-cursor-follower {
+    display: none !important;
+    visibility: hidden !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    position: absolute !important;
+  }
+}
   </style>
 </head>
 <body>
