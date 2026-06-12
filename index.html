@@ -1677,6 +1677,121 @@
         transform: scale(1) !important;
       }
     }
+    /* ==========================================================================
+   FIXES FOR HORIZONTAL SCROLLING & MOBILE OPTIMIZATION
+   ========================================================================== */
+
+/* Universal Overwrite Safeguard against element spilling */
+img, svg, iframe, video {
+  max-width: 100%;
+}
+
+/* Ensure padding behaves inside absolute widths */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Adjusted from 2rem to prevent edge squeezing on small phones */
+  box-sizing: border-box;
+}
+
+/* 1. Header Navigation Padding Adjustment */
+@media (max-width: 480px) {
+  .navbar, .navbar.scrolled {
+    padding: 1rem 1.25rem !important;
+  }
+}
+
+/* 2. Hero Section Mobile Optimization */
+@media (max-width: 991px) {
+  .hero-section {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
+  .hero-context-col {
+    order: 2 !important;
+    padding: 2rem 1.5rem !important;
+  }
+  .hero-main-col {
+    order: 1 !important;
+    padding: 7rem 1.5rem 3rem 1.5rem !important; /* Extra top padding for fixed header */
+  }
+  .hero-art-col {
+    order: 3 !important;
+    padding: 3rem 1.5rem 5rem 1.5rem !important;
+  }
+  .hero-editorial-actions {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}
+
+/* 3. Aesthetic List Grid Reflows (About Section) */
+@media (max-width: 768px) {
+  .aesthetic-list-item {
+    grid-template-columns: 1fr !important; /* Stack columns to prevent text clipping */
+    gap: 0.5rem !important;
+    padding: 1.5rem 0 !important;
+  }
+  .aesthetic-list-num {
+    margin-bottom: 0.25rem !important;
+  }
+  .aesthetic-list-title {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* 4. Split Listing & Carousel Breakpoints (Offers Section) */
+@media (max-width: 1024px) {
+  .listing-split-list {
+    grid-template-columns: 1fr !important; /* Stack slider above text details */
+    gap: 2.5rem !important;
+  }
+  .listing-details {
+    padding: 2rem 0 !important; /* Remove heavy side paddings pushing layout wide */
+  }
+}
+
+@media (max-width: 576px) {
+  .listing-header {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  .highlights-grid {
+    grid-template-columns: 1fr !important; /* Stack bedroom/bathroom icons sequentially */
+    gap: 1rem !important;
+  }
+}
+
+/* 5. Contact Form Grid & Form Adjustments */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3.5rem !important;
+  }
+}
+
+/* 6. Footer Content Grid Optimization */
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr !important; /* Prevent column overlap */
+    gap: 3rem !important;
+  }
+}
+
+/* Extra small mobile typography scaling adjustments */
+@media (max-width: 375px) {
+  h1 {
+    font-size: 2.2rem !important;
+  }
+  .hero-vintage-italic {
+    font-size: 2.6rem !important;
+  }
+  .hero-vintage-sub {
+    font-size: 1.1rem !important;
+  }
+}
   </style>
 </head>
 <body>
