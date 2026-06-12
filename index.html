@@ -1830,6 +1830,29 @@ html, body {
     position: absolute !important;
   }
 }
+    /* ==========================================================================
+   POPRAWKA PRZYCIĘTEGO LOGO W HEADERZE (MOBILE LOGO FIT)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  /* Zmniejszenie rozmiaru czcionki logo, aby tekst zmieścił się w jednej linii */
+  .logo {
+    font-size: 1.25rem !important;
+    white-space: nowrap !important; /* Blokuje łamanie tekstu do nowej linii */
+  }
+
+  /* Subtelne zmniejszenie złotego sygnetu IV */
+  .logo span {
+    margin-right: 0.15rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Dodatkowe zabezpieczenie dla najmniejszych ekranów (np. starsze iPhone) */
+  .logo {
+    font-size: 1.1rem !important;
+  }
+}
   </style>
 </head>
 <body>
