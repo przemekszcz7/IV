@@ -1,0 +1,6 @@
+{
+  "name": "IV Nieruchomości",
+  "description": "Profesjonalna agencja nieruchomości we Wrocławiu i na Dolnym Śląsku",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
