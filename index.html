@@ -1,2118 +1,253 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IV Nieruchomości — Wrocław & Dolny Śląsk</title>
-  
-  <link rel="icon" type="image/jpeg" href="https://i.ibb.co/XZmgrKfp/638304282-122094761517283478-7407989459376420636-n.jpg">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* Premium Color Palette Configuration */
-    :root {
-      --white: #ffffff;
-      --off-white: #f8f8f5;
-      --sage-light: #f0f7ee;
-      --sage: #a8c5a0;
-      --green: #4a8c5c;
-      --green-dark: #2d6b3e;
-      --charcoal: #1a1a1a;
-      --charcoal-mid: #2e2e2e;
-      --gray: #6b6b6b;
-      --gray-light: #e8e8e4;
-      --gold: #dfba73;
-      --gold-dark: #b59453;
-      --gold-light: #f7eed7;
-      
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      
-      --transition-smooth: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-fast: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* Reset & Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-family: var(--font-sans);
-      background-color: var(--white);
-      color: var(--charcoal);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--off-white);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--sage);
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--green);
-    }
-
-    /* Typography & Display Headers */
-    h1, h2, h3, h4 {
-      font-family: var(--font-serif);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--charcoal);
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-
-    p {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: var(--gray);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: var(--transition-fast);
-    }
-
-    /* Custom Cursor FOLLOW-DOT */
-    #custom-cursor {
-      width: 8px;
-      height: 8px;
-      background-color: var(--gold-dark);
-      border-radius: 50%;
-      position: fixed;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 10000;
-      transition: transform 0.2s, background-color 0.2s;
-    }
-
-    #custom-cursor-follower {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      position: fixed;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform 0.1s ease-out, border-color 0.2s;
-    }
-
-    /* Adjust custom cursor on mobile */
-    @media (max-width: 1024px) {
-      #custom-cursor, #custom-cursor-follower {
-        display: none !important;
-      }
-    }
-
-    /* Outer layout utility */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Universal Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem 2.22rem;
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: 1px solid transparent;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: var(--transition-smooth);
-      font-family: var(--font-sans);
-    }
-
-    .btn-primary {
-      background-color: var(--green);
-      color: var(--white);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--green-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(74, 140, 92, 0.15);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      border-color: var(--white);
-      color: var(--white);
-    }
-
-    .btn-secondary:hover {
-      background-color: var(--white);
-      color: var(--charcoal);
-      transform: translateY(-3px);
-    }
-
-    .btn-charcoal {
-      background-color: var(--charcoal);
-      color: var(--white);
-    }
-
-    .btn-charcoal:hover {
-      background-color: var(--charcoal-mid);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-facebook {
-      background-color: #1877f2;
-      color: var(--white);
-      border: none;
-    }
-
-    .btn-facebook:hover {
-      background-color: #166fe5;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(24, 119, 242, 0.25);
-    }
-
-    .btn svg {
-      margin-right: 0.5rem;
-    }
-
-    /* Scroll animations style (IntersectionObserver) */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Header & Navigation */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 990;
-      padding: 1.5rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: var(--transition-smooth);
-      background-color: transparent;
-    }
-
-    .navbar.scrolled {
-      padding: 1rem 4rem;
-      background-color: var(--white);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-    }
-
-    .logo {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--white);
-      transition: var(--transition-fast);
-      display: flex;
-      align-items: center;
-    }
-
-    .logo span {
-      color: var(--gold);
-      margin-right: 0.2rem;
-      font-weight: 600;
-      text-shadow: 0 0 10px rgba(223, 186, 115, 0.35);
-    }
-
-    .navbar.scrolled .logo {
-      color: var(--charcoal);
-    }
-
-    .navbar.scrolled .logo span {
-      color: var(--gold-dark);
-      text-shadow: none;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2.5rem;
-    }
-
-    .nav-link {
-      font-size: 0.85rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.85);
-      position: relative;
-      padding: 0.5rem 0;
-    }
-
-    .nav-link:hover {
-      color: var(--white);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background-color: var(--sage);
-      transition: var(--transition-fast);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .navbar.scrolled .nav-link {
-      color: var(--charcoal-mid);
-    }
-
-    .navbar.scrolled .nav-link:hover {
-      color: var(--green);
-    }
-
-    .navbar.scrolled .nav-link::after {
-      background-color: var(--green);
-    }
-
-    /* Mobile Menu Toggle */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 25px;
-      height: 18px;
-      cursor: pointer;
-      z-index: 1010;
-    }
-
-    .menu-toggle span {
-      display: block;
-      height: 2px;
-      width: 100%;
-      background-color: var(--white);
-      transition: var(--transition-fast);
-    }
-
-    .navbar.scrolled .menu-toggle span {
-      background-color: var(--charcoal);
-    }
-
-    /* Mobile navbar overlay container */
-    @media (max-width: 1024px) {
-      .navbar {
-        padding: 1.2rem 2rem;
-      }
-      .navbar.scrolled {
-        padding: 1rem 2rem;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        max-width: 400px;
-        height: 100vh;
-        background-color: var(--charcoal);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-        padding: 2rem;
-        transition: var(--transition-smooth);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
-      }
-      .nav-links.active {
-        right: 0;
-      }
-      .nav-link {
-        color: var(--white) !important;
-        font-size: 1rem;
-      }
-      .nav-link::after {
-        background-color: var(--sage) !important;
-      }
-      .menu-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-        background-color: var(--white) !important;
-      }
-      .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-      .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-        background-color: var(--white) !important;
-      }
-    }
-
-    /* Hero Section Redesign: Immersive Typographic & Architectural Masterpiece */
-    .hero-section {
-      width: 100%;
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 280px 1.4fr 1.1fr;
-      position: relative;
-      overflow: hidden;
-      background-color: #121210; /* Soft warm luxury charcoal black */
-      background-image: 
-        linear-gradient(to right, rgba(18, 18, 16, 0.94) 0%, rgba(18, 18, 16, 0.88) 50%, rgba(13, 13, 12, 0.92) 100%),
-        url('https://i.ibb.co/R4PRLsKz/photograph-of-modern-house-professional-202606120815.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed; /* Parallax effect where supported */
-      color: var(--white);
-    }
-
-    /* Immersive Floating Gradient Blobs */
-    .hero-glow-blob-1 {
-      position: absolute;
-      top: -10%;
-      right: 15%;
-      width: 450px;
-      height: 450px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(223, 186, 115, 0.16) 0%, rgba(181, 148, 83, 0.04) 50%, rgba(0,0,0,0) 100%);
-      filter: blur(80px);
-      z-index: 1;
-      pointer-events: none;
-      animation: floatGlow 15s infinite ease-in-out alternate;
-    }
-    .hero-glow-blob-2 {
-      position: absolute;
-      bottom: 10%;
-      left: 20%;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(168, 197, 160, 0.12) 0%, rgba(74, 140, 92, 0.02) 60%, rgba(0,0,0,0) 100%);
-      filter: blur(100px);
-      z-index: 1;
-      pointer-events: none;
-      animation: floatGlow 20s infinite ease-in-out alternate-reverse;
-    }
-    @keyframes floatGlow {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(30px, -50px) scale(1.1); }
-      100% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-
-    /* Column 1: Editorial Context / Coordinates & Info */
-    .hero-context-col {
-      border-right: 1px solid rgba(168, 197, 160, 0.15);
-      padding: 5.5rem 2.5rem 3rem 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      z-index: 10;
-    }
-
-    .hero-context-top {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .hero-context-label {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      writing-mode: vertical-lr;
-      transform: rotate(180deg);
-      align-self: flex-start;
-      margin-top: 2rem;
-    }
-
-    .hero-location-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      border-top: 1px solid rgba(223, 186, 115, 0.15);
-      padding-top: 1.5rem;
-    }
-
-    .hero-coords {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 300;
-      color: var(--gold-light);
-      letter-spacing: 0.12em;
-    }
-
-    .hero-local-time {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.45);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .time-dot {
-      width: 6px;
-      height: 6px;
-      background-color: var(--gold);
-      border-radius: 50%;
-      display: inline-block;
-      animation: pulseAlert 2s infinite ease-in-out;
-    }
-
-    @keyframes pulseAlert {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
-    }
-
-    /* Column 2: Typographic Masterpiece */
-    .hero-main-col {
-      padding: 5.5rem 4rem 4rem 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      z-index: 10;
-      border-right: 1px solid rgba(168, 197, 160, 0.15);
-    }
-
-    .hero-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-    }
-
-    .hero-premium-pill {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      background-color: rgba(223, 186, 115, 0.12);
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      border: 1px solid rgba(223, 186, 115, 0.25);
-    }
-
-    .hero-main-col h1 {
-      font-family: var(--font-serif);
-      margin-bottom: 2rem;
-      opacity: 0;
-      transform: translateY(25px);
-      animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
-      line-height: 1.05;
-    }
-
-    .hero-vintage-brand {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 300;
-      color: var(--white);
-      display: block;
-      letter-spacing: 0.04em;
-    }
-
-    .hero-vintage-italic {
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-style: italic;
-      color: var(--gold);
-      font-weight: 400;
-      display: block;
-      margin-top: -0.3rem;
-      position: relative;
-    }
-
-    .hero-vintage-sub {
-      font-size: clamp(1.2rem, 2.5vw, 2.2rem);
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 300;
-      display: block;
-      margin-top: 0.5rem;
-      letter-spacing: 0.08em;
-    }
-
-    .hero-divider-fine {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(to right, rgba(223, 186, 115, 0.35), transparent);
-      margin: 2.5rem 0;
-      opacity: 0;
-      animation: lineGrowFull 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-    }
-
-    @keyframes lineGrowFull {
-      0% { width: 0; }
-      100% { width: 100%; }
-    }
-
-    .hero-editorial-desc {
-      max-width: 520px;
-      color: rgba(255, 255, 255, 0.65);
-      font-size: 1.15rem;
-      font-weight: 300;
-      line-height: 1.75;
-      margin-bottom: 3.5rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
-    }
-
-    .hero-editorial-desc strong {
-      color: var(--white);
-      font-weight: 400;
-    }
-
-    .hero-editorial-actions {
-      display: flex;
-      gap: 1.5rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
-    }
-
-    /* Column 3: Kinetic/Architectural Art */
-    .hero-art-col {
-      padding: 5.5rem 4rem 4rem 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      z-index: 10;
-      overflow: hidden;
-      background-color: #0d0d0c; /* Marginally darker shade for layered contrast */
-    }
-
-    .hero-art-container {
-      position: relative;
-      width: 100%;
-      max-width: 380px;
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      perspective: 800px;
-      cursor: crosshair;
-    }
-
-    /* Concentric Floating Arches */
-    .kinetic-arch-wrapper {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform-style: preserve-3d;
-      transition: transform 0.1s ease-out;
-      pointer-events: none;
-    }
-
-    .kinetic-arch-item {
-      position: absolute;
-      border: 1px solid rgba(168, 197, 160, 0.22);
-      border-bottom: none;
-      border-radius: 1000px 1000px 0 0;
-      background: linear-gradient(180deg, rgba(74, 140, 92, 0.06) 0%, rgba(168, 197, 160, 0.01) 85%, transparent 100%);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
-      transition: border-color 0.5s var(--transition-smooth), transform 0.1s ease-out, background-color 0.5s var(--transition-smooth), box-shadow 0.5s var(--transition-smooth);
-      box-shadow: inset 0 20px 40px rgba(74, 140, 92, 0.03), 0 15px 35px rgba(0, 0, 0, 0.25);
-    }
-
-    .kinetic-arch-item::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 10%;
-      right: 10%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(168, 197, 160, 0.1), transparent);
-    }
-
-    .arch-lg {
-      width: 320px;
-      height: 480px; /* high arch template */
-      transform: translateZ(-60px);
-      border-color: rgba(168, 197, 160, 0.18);
-    }
-
-    .arch-md {
-      width: 240px;
-      height: 360px;
-      transform: translateZ(0);
-      border-color: rgba(74, 140, 92, 0.25);
-    }
-
-    .arch-sm {
-      width: 160px;
-      height: 240px;
-      transform: translateZ(60px);
-      border-color: var(--green);
-    }
-
-    .arch-xs {
-      width: 80px;
-      height: 120px;
-      transform: translateZ(120px);
-      border-color: var(--white);
-      opacity: 0.7;
-    }
-
-    .arch-goldbar {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, rgba(223, 186, 115, 0), rgba(223, 186, 115, 0.75) 50%, rgba(223, 186, 115, 0));
-      box-shadow: 0 0 12px rgba(223, 186, 115, 0.4);
-    }
-
-    .hero-art-caption {
-      margin-top: 3rem;
-      font-family: var(--font-serif);
-      font-size: 0.9rem;
-      font-style: italic;
-      letter-spacing: 0.06em;
-      color: rgba(255, 255, 255, 0.4);
-      text-align: center;
-      transition: var(--transition-fast);
-      pointer-events: none;
-    }
-
-    @keyframes heroFadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Scroll Indicator */
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 20;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.75rem;
-      font-weight: 300;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .scroll-indicator svg {
-      animation: bounce 2s infinite ease-in-out;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-8px);
-      }
-      60% {
-        transform: translateY(-4px);
-      }
-    }
-
-    /* Responsive scaling for structural redesign */
-    @media (max-width: 1200px) {
-      .hero-section {
-        grid-template-columns: 240px 1.2fr 1fr;
-      }
-      .hero-context-col {
-        padding: 5rem 2rem 3rem 2.5rem;
-      }
-      .hero-main-col {
-        padding: 5rem 2.5rem 3rem 2.5rem;
-      }
-      .hero-art-col {
-        padding: 5rem 2rem 3rem 2rem;
-      }
-    }
-
-    @media (max-width: 991px) {
-      .hero-section {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        min-height: auto;
-        background-attachment: scroll;
-      }
-      .hero-context-col {
-        border-right: none;
-        border-bottom: 1px solid rgba(168, 197, 160, 0.15);
-        padding: 5rem 2rem 2rem 2rem;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .hero-context-label {
-        writing-mode: horizontal-tb;
-        transform: none;
-        margin-top: 0;
-      }
-      .hero-location-card {
-        border-top: none;
-        padding-top: 0;
-        align-items: flex-end;
-      }
-      .hero-main-col {
-        border-right: none;
-        padding: 4rem 2rem;
-      }
-      .hero-art-col {
-        padding: 4rem 2rem 6rem 2rem;
-        border-top: 1px solid rgba(168, 197, 160, 0.15);
-      }
-      .hero-editorial-actions {
-        flex-wrap: wrap;
-        width: 100%;
-      }
-      .hero-editorial-actions .btn {
-        width: 100%;
-      }
-    }
-
-    /* Section Styling */
-    section {
-      padding: 10rem 0;
-      position: relative;
-    }
-
-    .section-header-centered {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 5rem auto;
-    }
-
-    .section-label {
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 1.2rem;
-    }
-
-    .section-sub {
-      font-size: 1.15rem;
-      color: var(--gray);
-    }
-
-    /* O NAS (About) Section */
-    .about-section {
-      background-color: var(--white);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 6rem;
-      align-items: flex-start;
-      position: relative;
-    }
-
-    .about-left {
-      position: relative;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .watermark-iv {
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-family: var(--font-serif);
-      font-size: clamp(12rem, 24vw, 24rem);
-      font-style: italic;
-      color: rgba(168, 197, 160, 0.13);
-      line-height: 0.8;
-      pointer-events: none;
-      user-select: none;
-      transform: translate(-20px, -40px);
-    }
-
-    .about-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.1;
-      position: relative;
-      z-index: 2;
-    }
-
-    .about-right {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
-
-    .about-text {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: var(--charcoal-mid);
-    }
-
-    /* Aesthetic List - No Box Card Design */
-    .aesthetic-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      width: 100%;
-      border-top: 1px solid var(--gray-light);
-      margin-top: 2rem;
-    }
-
-    .aesthetic-list-item {
-      display: grid;
-      grid-template-columns: 80px 1.5fr 3fr;
-      align-items: center;
-      padding: 1.8rem 0;
-      border-bottom: 1px solid var(--gray-light);
-      transition: var(--transition-fast);
-    }
-
-    .aesthetic-list-item:hover {
-      padding-left: 1rem;
-      border-bottom-color: var(--green);
-    }
-
-    .aesthetic-list-num {
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--sage);
-      letter-spacing: 0.1em;
-    }
-
-    .aesthetic-list-item:hover .aesthetic-list-num {
-      color: var(--green);
-    }
-
-    .aesthetic-list-title {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      font-weight: 500;
-      color: var(--charcoal);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .aesthetic-list-title svg {
-      color: var(--green);
-      flex-shrink: 0;
-    }
-
-    .aesthetic-list-desc {
-      font-size: 1rem;
-      color: var(--gray);
-      font-weight: 300;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 1024px) {
-      section {
-        padding: 6rem 0;
-      }
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-      .about-left {
-        min-height: auto;
-      }
-      .watermark-iv {
-        font-size: 15rem;
-        transform: translate(-10px, -30px);
-      }
-      .aesthetic-list-item {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-        padding: 1.5rem 0;
-      }
-      .aesthetic-list-item:hover {
-        padding-left: 0;
-      }
-    }
-
-    /* OFERTY (Listings) Section */
-    .offers-section {
-      background-color: var(--off-white);
-    }
-
-    /* Split Listing Design (Borderless Aesthetic List) */
-    .listing-split-list {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 3.5rem;
-      align-items: start;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .listing-carousel-wrapper {
-      position: relative;
-      border: 1px solid var(--gray-light);
-      padding: 0.5rem;
-      background-color: var(--white);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
-    }
-
-    .listing-details-container {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Catalog list (aesthetic vertical specification table list) */
-    .catalog-list {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      border-top: 1.5px solid var(--charcoal);
-      margin: 1.5rem 0 2.5rem 0;
-    }
-
-    .catalog-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.1rem 0;
-      border-bottom: 1px solid var(--gray-light);
-      font-size: 1rem;
-    }
-
-    .catalog-label {
-      font-family: var(--font-sans);
-      font-weight: 400;
-      color: var(--gray);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .catalog-label svg {
-      color: var(--green);
-    }
-
-    .catalog-value {
-      font-family: var(--font-sans);
-      font-weight: 500;
-      color: var(--charcoal);
-    }
-
-    .catalog-value.highlight {
-      color: var(--gold-dark);
-      font-weight: 600;
-    }
-
-    .catalog-row.price-total {
-      background-color: rgba(74, 140, 92, 0.06);
-      margin: 1rem 0 0 0;
-      padding: 1.25rem 1rem;
-      border: 1px solid rgba(74, 140, 92, 0.15);
-      border-radius: 4px;
-    }
-
-    .catalog-row.price-total .catalog-label {
-      color: var(--green-dark);
-      font-weight: 500;
-    }
-
-    .catalog-row.price-total .catalog-value {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--green-dark);
-    }
-
-    /* Responsive Image Carousel */
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/10;
-      overflow: hidden;
-      background-color: var(--charcoal);
-    }
-
-    .carousel-track {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .carousel-slide {
-      flex: 0 0 100%;
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      background-color: rgba(255, 255, 255, 0.9);
-      border: none;
-      border-radius: 50%;
-      color: var(--charcoal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 10;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: var(--transition-fast);
-    }
-
-    .carousel-btn:hover {
-      background-color: var(--white);
-      color: var(--green);
-      transform: translateY(-50%) scale(1.05);
-    }
-
-    .carousel-btn.prev {
-      left: 1.5rem;
-    }
-
-    .carousel-btn.next {
-      right: 1.5rem;
-    }
-
-    .carousel-dots {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 0.6rem;
-      z-index: 10;
-    }
-
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.5);
-      border: none;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-
-    .carousel-dot.active {
-      background-color: var(--white);
-      transform: scale(1.3);
-    }
-
-    /* Property details */
-    .listing-details {
-      padding: 3.5rem;
-    }
-
-    .listing-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 2rem;
-      gap: 1.5rem;
-    }
-
-    .listing-info {
-      flex-grow: 1;
-    }
-
-    .pill-badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.4rem 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      background-color: var(--gold-light);
-      color: var(--gold-dark);
-      border-radius: 50px;
-      margin-bottom: 1rem;
-    }
-
-    .listing-title {
-      font-size: 2.22rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .listing-subtitle {
-      font-size: 1rem;
-      color: var(--gray);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .listing-subtitle svg {
-      color: var(--green);
-      flex-shrink: 0;
-    }
-
-    /* Highlights Row */
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      padding: 1.8rem 0;
-      border-top: 1px solid var(--gray-light);
-      border-bottom: 1px solid var(--gray-light);
-      margin-bottom: 2.5rem;
-    }
-
-    .highlight-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .highlight-item svg {
-      color: var(--green);
-      opacity: 0.9;
-    }
-
-    .highlight-item span {
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--charcoal-mid);
-    }
-
-    /* Price Section styling */
-    .price-block {
-      background-color: var(--off-white);
-      border-radius: 8px;
-      padding: 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .price-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.8rem;
-      font-size: 1.05rem;
-      color: var(--gray);
-    }
-
-    .price-row.total {
-      margin-bottom: 0;
-      padding-top: 1rem;
-      border-top: 1px dashed var(--gray-light);
-      color: var(--charcoal);
-    }
-
-    .price-row strong {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      font-weight: 500;
-      color: var(--charcoal);
-    }
-
-    .price-row.total strong {
-      font-size: 1.8rem;
-      color: var(--green-dark);
-    }
-
-    /* FB Link Block below */
-    .more-offers-block {
-      text-align: center;
-      margin-top: 4.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .more-offers-text {
-      font-size: 1.15rem;
-      color: var(--charcoal-mid);
-    }
-
-    @media (max-width: 991px) {
-      .listing-split-list {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .listing-details {
-        padding: 2rem;
-      }
-
-      .listing-header {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .listing-title {
-        font-size: 1.8rem;
-      }
-
-      .highlights-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1.2rem 0;
-      }
-
-      .price-block {
-        padding: 1.5rem;
-      }
-
-      .price-row {
-        font-size: 0.95rem;
-      }
-
-      .price-row.total strong {
-        font-size: 1.45rem;
-      }
-    }
-
-    /* DLACZEGO MY (Why Us) Section */
-    .why-us-section {
-      background-color: var(--sage-light);
-    }
-
-    /* Why Us List - Aesthetic dividers representing list format */
-    .why-us-list {
-      display: flex;
-      flex-direction: column;
-      max-width: 900px;
-      margin: 0 auto;
-      border-top: 1px solid rgba(74, 140, 92, 0.25);
-    }
-
-    .why-us-item {
-      display: grid;
-      grid-template-columns: 80px 1.5fr 3.5fr;
-      align-items: start;
-      padding: 2.22rem 0;
-      border-bottom: 1px solid rgba(74, 140, 92, 0.25);
-      transition: var(--transition-smooth);
-    }
-
-    .why-us-item:hover {
-      padding-left: 1.5rem;
-      background-color: rgba(255, 255, 255, 0.25);
-    }
-
-    .why-us-num {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      font-style: italic;
-      color: var(--green);
-      line-height: 1;
-    }
-
-    .why-us-title-block {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .why-us-icon {
-      width: 42px;
-      height: 42px;
-      background-color: var(--white);
-      color: var(--green);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(74, 140, 92, 0.15);
-      flex-shrink: 0;
-    }
-
-    .why-us-title {
-      font-family: var(--font-serif);
-      font-size: 1.45rem;
-      font-weight: 500;
-      color: var(--charcoal);
-    }
-
-    .why-us-desc {
-      color: var(--gray);
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .why-us-item {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-        padding: 1.8rem 0;
-      }
-
-      .why-us-item:hover {
-        padding-left: 0.8rem;
-      }
-    }
-
-    /* KONTAKT (Contact) Section */
-    .contact-section {
-      background-color: var(--white);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    .contact-left {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-    }
-
-    .contact-headline {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.1;
-    }
-
-    .contact-channels {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-
-    .contact-icon {
-      width: 48px;
-      height: 48px;
-      border: 1px solid var(--gray-light);
-      border-radius: 50%;
-      color: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .contact-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contact-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--gray);
-      margin-bottom: 0.2rem;
-    }
-
-    .contact-value {
-      font-size: 1.1rem;
-      color: var(--charcoal);
-      font-weight: 400;
-    }
-
-    .contact-value.phone-prio {
-      font-size: 1.6rem;
-      font-family: var(--font-serif);
-      color: var(--green-dark);
-      font-weight: 500;
-    }
-
-    .contact-item a:hover .contact-value {
-      color: var(--green);
-    }
-
-    .facebook-prompt {
-      margin-top: 1rem;
-    }
-
-    .fb-action-btn {
-      margin-bottom: 1rem;
-    }
-
-    .contact-note {
-      font-size: 0.9rem;
-      color: var(--gray);
-      font-style: italic;
-    }
-
-    /* Right column: luxury architectural monogram container */
-    .contact-right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .architectural-frame {
-      width: 100%;
-      max-width: 440px;
-      aspect-ratio: 1;
-      border: 1px solid var(--sage);
-      padding: 2.5rem;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--off-white);
-    }
-
-    .architectural-frame::after {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      border: 1px solid rgba(168, 197, 160, 0.3);
-      pointer-events: none;
-    }
-
-    @media (max-width: 991px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1.5rem;
-      }
-      .architectural-frame {
-        max-width: 100%;
-        aspect-ratio: auto;
-        padding: 2rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta Wynajmu Nieruchomości</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #b89742;
+            --text-color: #333;
+            --bg-light: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        /* Main Content Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .content-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        /* Gallery Styles */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-img-wrapper {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .main-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .thumb {
+            height: 80px;
+            border-radius: 4px;
+            cursor: pointer;
+            overflow: hidden;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .thumb.active, .thumb:hover {
+            opacity: 1;
+            border-color: var(--accent-color);
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Details & Pricing Card */
+        .details-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .features-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .price-section {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .price-row.total {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed #ddd;
+        }
+
+        .btn-contact {
+            display: block;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn-contact:hover {
+            background: #1a252f;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="custom-cursor"></div>
-  <div id="custom-cursor-follower"></div>
+    <div class="container">
+        <header>
+            <h1>Prezentacja Oferty</h1>
+        </header>
 
-  <nav class="navbar">
-    <a href="#" class="logo"><span>IV</span> Nieruchomości</a>
-    <div class="menu-toggle" id="mobile-menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="nav-links" id="navbar-links-list">
-      <li><a href="#" class="nav-link">Start</a></li>
-      <li><a href="#o-nas" class="nav-link">O nas</a></li>
-      <li><a href="#oferty" class="nav-link">Oferty</a></li>
-      <li><a href="#dlaczego-my" class="nav-link">Dlaczego my</a></li>
-      <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
-    </ul>
-  </nav>
+        <div class="content-grid">
+            <!-- Left Side: Gallery -->
+            <div class="gallery-container">
+                <div class="main-img-wrapper">
+                    <img id="featured" src="https://i.ibb.co/d0CF1zDD/638307959-122094941847283478-6191178085188639055-n.jpg" alt="Zdjęcie nieruchomości">
+                </div>
+                <div class="thumbnail-grid">
+                    <div class="thumb active" onclick="changeImage(this, 'https://i.ibb.co/d0CF1zDD/638307959-122094941847283478-6191178085188639055-n.jpg')">
+                        <img src="https://i.ibb.co/d0CF1zDD/638307959-122094941847283478-6191178085188639055-n.jpg" alt="Miniaturka 1">
+                    </div>
+                    <div class="thumb" onclick="changeImage(this, 'https://i.ibb.co/k2ptQWgL/637292963-122094942177283478-3126443323052143984-n.jpg')">
+                        <img src="https://i.ibb.co/k2ptQWgL/637292963-122094942177283478-3126443323052143984-n.jpg" alt="Miniaturka 2">
+                    </div>
+                    <div class="thumb" onclick="changeImage(this, 'https://i.ibb.co/rfkZWhh2/638430448-122094941829283478-2801516253964915285-n.jpg')">
+                        <img src="https://i.ibb.co/rfkZWhh2/638430448-122094941829283478-2801516253964915285-n.jpg" alt="Miniaturka 3">
+                    </div>
+                    <div class="thumb" onclick="changeImage(this, 'https://i.ibb.co/mV0BBgr7/639566336-122094942117283478-8457010170034581875-n.jpg')">
+                        <img src="https://i.ibb.co/mV0BBgr7/639566336-122094942117283478-8457010170034581875-n.jpg" alt="Miniaturka 4">
+                    </div>
+                    <div class="thumb" onclick="changeImage(this, 'https://i.ibb.co/XxCRswhV/639060337-122094941931283478-8245118694726965152-n.jpg')">
+                        <img src="https://i.ibb.co/XxCRswhV/639060337-122094941931283478-8245118694726965152-n.jpg" alt="Miniaturka 5">
+                    </div>
+                </div>
+            </div>
 
-  <header class="hero-section">
-    <div class="hero-glow-blob-1"></div>
-    <div class="hero-glow-blob-2"></div>
-    
-    <div class="hero-context-col">
-      <div class="hero-context-top">
-        <span class="hero-context-label">Dojrzałe Pośrednictwo</span>
-      </div>
-      <div class="hero-location-card">
-        <p class="hero-coords">51.1079° N, 17.0385° E</p>
-        <p class="hero-local-time"><span class="time-dot"></span> Wrocław & Dolny Śląsk</p>
-      </div>
-    </div>
+            <!-- Right Side: Details -->
+            <div class="details-sidebar">
+                <div class="card">
+                    <h3>Mieszkanie na wynajem</h3>
+                    <ul class="features-list">
+                        <li><strong>Lokalizacja:</strong> Klecina</li>
+                        <li><strong>Pokoje:</strong> 2 pokoje</li>
+                        <li><strong>Dodatkowo:</strong> Taras</li>
+                        <li><strong>Garderoba:</strong> Tak</li>
+                    </ul>
 
-    <div class="hero-main-col">
-      <div class="hero-badge-row">
-        <span class="hero-premium-pill">Premium Real Estate</span>
-      </div>
-      <h1>
-        <span class="hero-vintage-brand">Kreujemy Nowy Standard</span>
-        <span class="hero-vintage-italic">Bezpieczeństwa</span>
-        <span class="hero-vintage-sub">Twojego Majątku.</span>
-      </h1>
-      <div class="hero-divider-fine"></div>
-      <p class="hero-editorial-desc">
-        Nie jesteśmy masową agencją. Specjalizujemy się w <strong>skrupulatnej opiece prawnej, strategicznym marketingu</strong> oraz dyskretnej sprzedaży nieruchomości na terenie Wrocławia i Dolnego Śląska.
-      </p>
-      <div class="hero-editorial-actions">
-        <a href="#oferty" class="btn btn-primary">Zobacz Aktualne Oferty</a>
-        <a href="#kontakt" class="btn btn-secondary">Porozmawiajmy</a>
-      </div>
-    </div>
+                    <div class="price-section">
+                        <div class="price-row">
+                            <span>Czynsz najmu:</span>
+                            <strong>2 500 zł</strong>
+                        </div>
+                        <div class="price-row">
+                            <span>Opłaty administracyjne:</span>
+                            <strong>ok. 1 000 zł</strong>
+                        </div>
+                        <div class="price-row total">
+                            <span>Suma:</span>
+                            <span>ok. 3 500 zł / mc</span>
+                        </div>
+                    </div>
 
-    <div class="hero-art-col">
-      <div class="hero-art-container" id="hero-interactive-art">
-        <div class="kinetic-arch-wrapper" id="kinetic-arch-wrapper">
-          <div class="kinetic-arch-item arch-lg"></div>
-          <div class="kinetic-arch-item arch-md"></div>
-          <div class="kinetic-arch-item arch-sm"></div>
-          <div class="kinetic-arch-item arch-xs"></div>
-          <div class="arch-goldbar"></div>
+                    <a href="#kontakt" class="btn-contact">Skontaktuj się w sprawie oferty</a>
+                </div>
+            </div>
         </div>
-      </div>
-      <p class="hero-art-caption" id="hero-art-caption">IV Monogram Composition Ref. 2026</p>
     </div>
 
-    <div class="scroll-indicator">
-      <span>Odkryj</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </header>
-
-  <section id="o-nas" class="about-section">
-    <div class="container reveal">
-      <div class="about-grid">
-        <div class="about-left">
-          <div class="watermark-iv">IV</div>
-          <h2 class="about-title">Kameralne podejście,<br><strong>ponadprzeciętne efekty.</strong></h2>
-        </div>
-        <div class="about-right">
-          <p class="about-text">
-            IV Nieruchomości powstało z opozycji do masowych biur pośrednictwa. Wierzymy, że sprzedaż lub zakup nieruchomości to jedna z kluczowych decyzji finansowych w życiu. Dlatego rezygnujemy z dziesiątek przypadkowych ogłoszeń na rzecz absolutnego skupienia się na kilku wybranych projektach.
-          </p>
-          
-          <div class="aesthetic-list">
-            <div class="aesthetic-list-item">
-              <span class="aesthetic-list-num">I / III</span>
-              <h3 class="aesthetic-list-title">Selektywność</h3>
-              <p class="aesthetic-list-desc">Przyjmujemy ograniczoną liczbę ofert, dzięki czemu Twoja nieruchomość otrzymuje priorytetowe zaangażowanie i pełne spektrum naszych zasobów.</p>
-            </div>
-            <div class="aesthetic-list-item">
-              <span class="aesthetic-list-num">II / III</span>
-              <h3 class="aesthetic-list-title">Audyt Prawny</h3>
-              <p class="aesthetic-list-desc">Każdą nieruchomość weryfikujemy pod kątem formalno-prawnym. Rozwiązujemy skomplikowane stany prawne, księgi wieczyste i obciążenia.</p>
-            </div>
-            <div class="aesthetic-list-item">
-              <span class="aesthetic-list-num">III / III</span>
-              <h3 class="aesthetic-list-title">Strategia Premium</h3>
-              <p class="aesthetic-list-desc">Nie tylko dodajemy ogłoszenia. Projektujemy dedykowane kampanie marketingowe targetowane do precyzyjnie określonych grup inwestorów.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="oferty" class="offers-section">
-    <div class="container reveal">
-      <div class="section-header-centered">
-        <span class="section-label">Aktualne Portfolio</span>
-        <h2 class="section-title">Wybrane Nieruchomości</h2>
-        <p class="section-sub">Prezentujemy unikalne oferty zweryfikowane pod kątem prawnym i technicznym.</p>
-      </div>
-
-      <div class="listing-split-list">
-        
-        <div class="listing-carousel-wrapper">
-          <div class="carousel-container" id="property-carousel">
-            <div class="carousel-track" id="carousel-track">
-              <div class="carousel-slide">
-                <img src="https://i.ibb.co/R4PRLsKz/photograph-of-modern-house-professional-202606120815.jpg" alt="Nowoczesny dom Wrocław Krzyki exterior">
-              </div>
-              <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Luksusowy salon wnętrze architektoniczne">
-              </div>
-              <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Elegancka nowoczesna kuchnia rzemieślnicza">
-              </div>
-            </div>
-            <button class="carousel-btn prev" id="carousel-prev-btn" aria-label="Poprzednie zdjęcie">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button class="carousel-btn next" id="carousel-next-btn" aria-label="Następne zdjęcie">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 5l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <div class="carousel-dots" id="carousel-navigation-dots"></div>
-          </div>
-
-          <div class="listing-details">
-            <div class="listing-header">
-              <div class="listing-info">
-                <span class="pill-badge">Na Sprzedaż</span>
-                <h3 class="listing-title">Rezydencja Architektoniczna</h3>
-                <p class="listing-subtitle">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="12" cy="10" r="3" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  Wrocław, Krzyki / Borek Area
-                </p>
-              </div>
-            </div>
-
-            <div class="highlights-grid">
-              <div class="highlight-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Pow: 240 m²</span>
-              </div>
-              <div class="highlight-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <rect x="3" y="3" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Działka: 850 m²</span>
-              </div>
-              <div class="highlight-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path d="M2 4h20v14a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm2 4h16M4 12h16M4 16h16" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Pokoje: 5</span>
-              </div>
-            </div>
-
-            <p class="about-text">
-              Wyjątkowy dom wolnostojący zaprojektowany przez renomowaną wrocławską pracownię. Minimalistyczna bryła idealnie komponuje się ze starodrzewem ogrodowym. Najwyższej klasy materiały wykończeniowe (kamień naturalny, modrzew syberyjski), zaawansowana pompa ciepła, rekuperacja oraz zintegrowany system Smart Home. Stan prawny w pełni czysty, bez obciążeń hipotecznych.
-            </p>
-          </div>
-        </div>
-
-        <div class="listing-details-container">
-          <h4 style="font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; margin-bottom: 0.5rem;">Specyfikacja Szczegółowa</h4>
-          <p style="font-size: 0.95rem; color: var(--gray);">Komplet parametrów transakcyjnych i technicznych:</p>
-          
-          <div class="catalog-list">
-            <div class="catalog-row">
-              <span class="catalog-label">Rok Budowy</span>
-              <span class="catalog-value">2024</span>
-            </div>
-            <div class="catalog-row">
-              <span class="catalog-label">Stan Techniczny</span>
-              <span class="catalog-value highlight">Idealny (Premium Wykończenie)</span>
-            </div>
-            <div class="catalog-row">
-              <span class="catalog-label">Rodzaj Ogrzewania</span>
-              <span class="catalog-value">Pompa Ciepła + Fotowoltaika</span>
-            </div>
-            <div class="catalog-row">
-              <span class="catalog-label">Bezpieczeństwo</span>
-              <span class="catalog-value">Monitoring, Alarm, Rolety Rejs</span>
-            </div>
-            <div class="catalog-row">
-              <span class="catalog-label">Lokalizacja Otoczenia</span>
-              <span class="catalog-value">Kameralna ślepa ulica, blisko parku</span>
-            </div>
-            <div class="catalog-row">
-              <span class="catalog-label">Forma Własności</span>
-              <span class="catalog-value">Pełna Własność, KW bez wpisów</span>
-            </div>
-            <div class="catalog-row price-total">
-              <span class="catalog-label">Cena Ofertowa</span>
-              <span class="catalog-value">3 490 000 PLN</span>
-            </div>
-          </div>
-
-          <a href="#kontakt" class="btn btn-charcoal" style="width: 100%;">Zapytaj o Szczegóły / Umów Prezentację</a>
-        </div>
-      </div>
-
-      <div class="more-offers-block">
-        <p class="more-offers-text">Szukasz czegoś innego? Nasze dynamiczne portfolio regularnie aktualizujemy na Facebooku.</p>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn btn-facebook fb-action-btn">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/>
-          </svg>
-          Przeglądaj Pozostałe Oferty na Facebooku
-        </a>
-        <span class="contact-note">* Część ofert prowadzimy w ramach tzw. sprzedaży dyskretnej (off-market) – zapraszamy do kontaktu bezpośredniego.</span>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="dlaczego-my" class="why-us-section">
-    <div class="container reveal">
-      <div class="section-header-centered">
-        <span class="section-label">Fundamenty Działania</span>
-        <h2 class="section-title">Dlaczego IV Nieruchomości?</h2>
-        <p class="section-sub">Przekonaj się, czym różni się spersonalizowana opieka maklerska od masowych usług.</p>
-      </div>
-
-      <div class="why-us-list">
-        <div class="why-us-item">
-          <span class="why-us-num">01</span>
-          <div class="why-us-title-block">
-            <div class="why-us-icon">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3 class="why-us-title">Pełna Odpowiedzialność Prawna</h3>
-          </div>
-          <p class="why-us-desc">Nie unikamy trudnych tematów. Analizujemy stan ksiąg wieczystych, prawa pierwokupu, służebności oraz pomagamy w prostowaniu zaszłości geodezyjnych. Bezpieczeństwo transakcji to nasz absolutny priorytet.</p>
-        </div>
-
-        <div class="why-us-item">
-          <span class="why-us-num">02</span>
-          <div class="why-us-title-block">
-            <div class="why-us-icon">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3 class="why-us-title">Transparentna Prezentacja</h3>
-          </div>
-          <p class="why-us-desc">Odrzucamy techniki manipulacyjne i sztuczne retusze szerokokątne. Nasze zdjęcia odzwierciedlają stan faktyczny, a parametry w specyfikacji są rzetelne i sprawdzone. Szanujemy czas zarówno kupujących, jak i sprzedających.</p>
-        </div>
-
-        <div class="why-us-item">
-          <span class="why-us-num">03</span>
-          <div class="why-us-title-block">
-            <div class="why-us-icon">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3 class="why-us-title">Sprawność Operacyjna</h3>
-          </div>
-          <p class="why-us-desc">Dzięki ograniczonej bazie ofert działamy błyskawicznie. Natychmiast odpowiadamy na zapytania, osobiście koordynujemy każdą prezentację i dbamy o dynamiczny przepływ dokumentacji między bankami i notariuszem.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="kontakt" class="contact-section">
-    <div class="container reveal">
-      <div class="contact-grid">
-        
-        <div class="contact-left">
-          <span class="section-label" style="margin-bottom: 0;">Bezpośredni Dialog</span>
-          <h2 class="contact-headline">Porozmawiajmy o Twojej Nieruchomości</h2>
-          <p class="about-text" style="margin-top: -1rem;">Masz pytania dotyczące wybranej oferty? A może planujesz bezpieczną sprzedaż własnego mieszkania lub domu we Wrocławiu? Zadzwoń lub napisz — chętnie doradzimy bez zobowiązań.</p>
-          
-          <div class="contact-channels">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                  <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <span class="contact-label">Zadzwoń bezpośrednio (Priorytet)</span>
-                <a href="tel:+48000000000" class="contact-value phone-prio">+48 000 000 000</a>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <span class="contact-label">Napisz Wiadomość E-mail</span>
-                <a href="mailto:biuro@ivnieruchomosci.pl" class="contact-value">biuro@ivnieruchomosci.pl</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="facebook-prompt">
-            <p class="contact-note" style="margin-bottom: 1rem;">Możesz również skontaktować się z nami za pośrednictwem Messengera na naszym oficjalnym profilu:</p>
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn btn-facebook">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/>
-              </svg>
-              Wyślij Wiadomość na Facebooku
-            </a>
-          </div>
-        </div>
-
-        <div class="contact-right">
-          <div class="architectural-frame">
-            <div class="architectural-center" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-              <span style="font-family: var(--font-serif); font-size: 3.5rem; font-weight: 300; color: var(--gold-dark); line-height: 1; letter-spacing: -0.05em;">IV</span>
-              <span style="font-family: var(--font-sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--charcoal-mid);">Nieruchomości</span>
-              <div style="width: 30px; height: 1px; background-color: var(--sage); margin: 1rem 0;"></div>
-              <p style="font-size: 0.85rem; color: var(--gray); font-style: italic; max-width: 220px;">Ekspertyza, Bezpieczeństwo, Zaufanie.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <footer style="background-color: var(--charcoal); color: rgba(255, 255, 255, 0.5); padding: 4rem 0; border-top: 1px solid var(--charcoal-mid); font-size: 0.9rem;">
-    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem;">
-      <div>
-        <p style="color: var(--white); font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem;">IV Nieruchomości</p>
-        <p style="font-size: 0.8rem; font-weight: 200;">Koncesjonowane pośrednictwo i audyt prawny. Wrocław & Dolny Śląsk.</p>
-      </div>
-      <div style="font-size: 0.8rem; font-weight: 300;">
-        <p>&copy; 2026 IV Nieruchomości. Wszelkie prawa zastrzeżone.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // 1. Navbar Scroll state logic management
-      const navbar = document.querySelector('.navbar');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
+    <script>
+        function changeImage(thumbnail, src) {
+            document.getElementById('featured').src = src;
+            const thumbnails = document.querySelectorAll('.thumb');
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
         }
-      });
-
-      // 2. Mobile Nav Overlay SideDrawer Controller trigger mechanism toggle
-      const toggle = document.getElementById('mobile-menu-toggle');
-      const list = document.getElementById('navbar-links-list');
-      if (toggle && list) {
-        toggle.addEventListener('click', () => {
-          toggle.classList.toggle('active');
-          list.classList.toggle('active');
-        });
-        
-        // Auto dismiss viewport context layout triggers upon choice action
-        list.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            toggle.classList.remove('active');
-            list.classList.remove('active');
-          });
-        });
-      }
-
-      // 3. Premium Interactive Custom Follow Dot Physics Engine implementation code logic
-      const cursor = document.getElementById('custom-cursor');
-      const follower = document.getElementById('custom-cursor-follower');
-      if (cursor && follower) {
-        let currentX = 0, currentY = 0;
-        let followX = 0, followY = 0;
-        
-        window.addEventListener('mousemove', (e) => {
-          currentX = e.clientX;
-          currentY = e.clientY;
-          cursor.style.left = `${currentX}px`;
-          cursor.style.top = `${currentY}px`;
-        });
-        
-        // Recursive animation rendering loop framework layout logic tracking updates
-        function renderFollowDot() {
-          let distanceX = currentX - followX;
-          let distanceY = currentY - followY;
-          followX += distanceX * 0.15;
-          followY += distanceY * 0.15;
-          follower.style.left = `${followX}px`;
-          follower.style.top = `${followY}px`;
-          requestAnimationFrame(renderFollowDot);
-        }
-        requestAnimationFrame(renderFollowDot);
-
-        // Interactive interactive response feedback upon triggering interactive items links buttons
-        document.querySelectorAll('a, button, .btn, .carousel-btn').forEach(interactiveItem => {
-          interactiveItem.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
-            cursor.style.backgroundColor = 'var(--green)';
-            follower.style.transform = 'translate(-50%, -50%) scale(1.4)';
-            follower.style.borderColor = 'var(--green)';
-          });
-          interactiveItem.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-            cursor.style.backgroundColor = 'var(--gold-dark)';
-            follower.style.transform = 'translate(-50%, -50%) scale(1)';
-            follower.style.borderColor = 'var(--gold)';
-          });
-        });
-      }
-
-      // 4. Hero Kinetic Structural 3D Archway Parallax Interface interaction framework implementation
-      const artContainer = document.getElementById('hero-interactive-art');
-      const archWrapper = document.getElementById('kinetic-arch-wrapper');
-      const archItems = document.querySelectorAll('.kinetic-arch-item');
-      const captionElement = document.getElementById('hero-art-caption');
-
-      if (artContainer && archWrapper) {
-        artContainer.addEventListener('mousemove', (e) => {
-          const rect = artContainer.getBoundingClientRect();
-          const positionX = e.clientX - rect.left; 
-          const positionY = e.clientY - rect.top;
-          
-          // Map normalization ranges factors calculations values layout constraints updates
-          const deltaX = (positionX / rect.width) - 0.5; 
-          const deltaY = (positionY / rect.height) - 0.5;
-          
-          // Rotate master system wrapper layout logic
-          archWrapper.style.transform = `rotateY(${deltaX * 35}deg) rotateX(${-deltaY * 35}deg)`;
-          
-          // Apply differential tracking depth offsets calculations logic transformations
-          archItems.forEach((arch, index) => {
-            const depthFactor = (index + 1) * 15;
-            arch.style.transform = `translate3d(${deltaX * depthFactor}px, ${deltaY * depthFactor}px, ${(index - 1.5) * 60}px)`;
-            arch.style.borderColor = `rgba(223, 186, 115, ${0.3 + (index * 0.2)})`;
-            arch.style.boxShadow = `inset 0 20px 40px rgba(223, 186, 115, ${0.07 + (index * 0.04)}), 0 15px 35px rgba(0, 0, 0, 0.35), 0 0 25px rgba(223, 186, 115, ${0.1 + (index * 0.1)})`;
-            arch.style.backgroundColor = `rgba(223, 186, 115, ${0.04 + (index * 0.02)})`;
-          });
-          
-          if (captionElement) {
-            captionElement.style.color = 'var(--white)';
-            captionElement.style.textShadow = '0 0 8px rgba(223, 186, 115, 0.4)';
-          }
-        });
-        
-        // Reset layout when cursor leaves area
-        artContainer.addEventListener('mouseleave', () => {
-          archWrapper.style.transform = 'rotateX(0deg) rotateY(0deg)';
-          archItems.forEach((arch, index) => {
-            arch.style.transform = `translate3d(0, 0, ${(index - 1.5) * 60}px)`;
-            arch.style.borderColor = index === 2 ? 'var(--green)' : index === 3 ? 'var(--white)' : 'rgba(168, 197, 160, 0.2)';
-            arch.style.boxShadow = 'inset 0 20px 40px rgba(74, 140, 92, 0.03), 0 15px 35px rgba(0, 0, 0, 0.25)';
-            arch.style.backgroundColor = 'transparent';
-          });
-          if (captionElement) {
-            captionElement.style.color = 'rgba(255, 255, 255, 0.4)';
-            captionElement.style.textShadow = 'none';
-          }
-        });
-      }
-
-      // 5. Functional Split Container Image Slide-Show Slider Carousel Interface implementation engine code
-      const track = document.getElementById('carousel-track');
-      const slides = Array.from(track ? track.children : []);
-      const prevBtn = document.getElementById('carousel-prev-btn');
-      const nextBtn = document.getElementById('carousel-next-btn');
-      const dotsContainer = document.getElementById('carousel-navigation-dots');
-      
-      if (track && slides.length > 0) {
-        let indexValueCurrent = 0;
-        
-        // Generate dot controls hooks
-        slides.forEach((_, indexMapKey) => {
-          const dotElement = document.createElement('button');
-          dotElement.classList.add('carousel-dot');
-          if (indexMapKey === 0) dotElement.classList.add('active');
-          dotElement.setAttribute('aria-label', `Zdjęcie ${indexMapKey + 1}`);
-          dotsContainer.appendChild(dotElement);
-        });
-        
-        const dotCollectionNodes = Array.from(dotsContainer.children);
-        
-        function updateCarouselDisplay(targetIndexKey) {
-          if (targetIndexKey < 0) targetIndexKey = slides.length - 1;
-          if (targetIndexKey >= slides.length) targetIndexKey = 0;
-          
-          indexValueCurrent = targetIndexKey;
-          track.style.transform = `translateX(-${indexValueCurrent * 100}%)`;
-          
-          dotCollectionNodes.forEach(d => d.classList.remove('active'));
-          dotCollectionNodes[indexValueCurrent].classList.add('active');
-        }
-        
-        nextBtn.addEventListener('click', () => updateCarouselDisplay(indexValueCurrent + 1));
-        prevBtn.addEventListener('click', () => updateCarouselDisplay(indexValueCurrent - 1));
-        
-        dotCollectionNodes.forEach((dot, dotIdx) => {
-          dot.addEventListener('click', () => updateCarouselDisplay(dotIdx));
-        });
-      }
-
-      // 6. Premium Architectural Scroll Reveal Transition Intersection Observer API pipeline hook framework implementation
-      const revealCollectionElements = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window) {
-        const structuralRevealObserver = new IntersectionObserver((entriesArray) => {
-          entriesArray.forEach(observedItem => {
-            if (observedItem.isIntersecting) {
-              observedItem.target.classList.add('revealed');
-              structuralRevealObserver.unobserve(observedItem.target);
-            }
-          });
-        }, {
-          threshold: 0.12,
-          rootMargin: '0px 0px -40px 0px'
-        });
-        
-        revealCollectionElements.forEach(element => structuralRevealObserver.observe(element));
-      } else {
-        // Fallback strategy architecture for older legacy pipeline environments structures compatibility
-        revealCollectionElements.forEach(element => element.classList.add('revealed'));
-      }
-
-    });
-  </script>
+    </script>
 </body>
 </html>
